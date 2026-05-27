@@ -55,7 +55,7 @@ http://localhost:8082
 
 This project maps Expo's container port `8081` to host port `8082` so it can run beside other Expo projects.
 
-Docker sets `EAS_NO_VCS=1` because this workspace is not currently a Git repository.
+Docker sets `EAS_NO_VCS=1` because the lightweight container image does not include Git. The local repository still uses Git normally.
 
 Docker checks:
 
@@ -64,7 +64,7 @@ docker exec fix-my-day npm run typecheck
 docker exec fix-my-day npx expo config --type public
 ```
 
-## Production Android and iOS builds
+## Android and iOS builds
 
 This app is configured for EAS Build with:
 
@@ -73,13 +73,21 @@ This app is configured for EAS Build with:
 - Production Android output: `.aab` for Google Play
 - Preview Android output: `.apk` for direct testing
 
-For first Android user testing, build the preview APK:
+### Android APK for first testers
+
+Use this for direct install on Android devices:
 
 ```bash
 docker compose run --rm fix-my-day npm run build:android:apk
 ```
 
 EAS will return a download link when the build finishes. Share that APK only with trusted testers.
+
+Check a build:
+
+```bash
+docker compose run --rm fix-my-day npx eas-cli build:list --platform android --limit 5
+```
 
 Authenticate with Expo from Docker.
 
@@ -97,31 +105,31 @@ docker compose run --rm fix-my-day npm run whoami:expo
 
 Or use an Expo access token:
 
-```bash
-set EXPO_TOKEN=your_token_here
-docker compose run --rm fix-my-day npm run build:all
+```powershell
+$env:EXPO_TOKEN="your_token_here"
+docker compose run --rm fix-my-day npm run whoami:expo
 ```
 
 If you use GitHub to sign in to Expo, the access token flow is usually the easiest Docker path. Create a token from your Expo account settings, set `EXPO_TOKEN`, then run the build command.
 
-Build production binaries:
+### Android AAB for Google Play
+
+Use this for Google Play production upload:
 
 ```bash
 docker compose run --rm fix-my-day npm run build:android
+```
+
+### iOS later
+
+```bash
 docker compose run --rm fix-my-day npm run build:ios
 ```
 
-Build both platforms:
+### Build all production platforms
 
 ```bash
 docker compose run --rm fix-my-day npm run build:all
-```
-
-Build tester builds:
-
-```bash
-docker compose run --rm fix-my-day npm run build:preview:android
-docker compose run --rm fix-my-day npm run build:preview:ios
 ```
 
 iOS production builds require an Apple Developer account for signing. Android production builds require a Google Play developer account when you are ready to submit the generated `.aab`.
