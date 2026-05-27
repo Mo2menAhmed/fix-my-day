@@ -6,6 +6,8 @@ services:
       EXPO_DEVTOOLS_LISTEN_ADDRESS: 0.0.0.0
       EXPO_TOKEN: ${EXPO_TOKEN:-}
       EAS_NO_VCS: "1"
+      EAS_LOCAL_BUILD_ARTIFACTS_DIR: /app/build-artifacts
+      GRADLE_USER_HOME: /root/.gradle
       REACT_NATIVE_PACKAGER_HOSTNAME: localhost
       CHOKIDAR_USEPOLLING: "true"
       BROWSER: none
@@ -19,7 +21,11 @@ services:
     volumes:
       - expo-home:/root/.expo
       - eas-home:/root/.eas
+      - gradle-cache:/root/.gradle
+      - build-artifacts:/app/build-artifacts
 
 volumes:
   expo-home:
   eas-home:
+  gradle-cache:
+  build-artifacts:

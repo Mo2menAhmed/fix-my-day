@@ -83,6 +83,22 @@ docker compose run --rm fix-my-day npm run build:android:apk
 
 EAS will return a download link when the build finishes. Share that APK only with trusted testers.
 
+### Local Android APK in Docker
+
+Use this when you want Docker to build the APK locally instead of using EAS cloud builders:
+
+```bash
+docker compose run --rm fix-my-day npm run build:android:apk:local
+```
+
+The APK will be written inside Docker's `myday_build-artifacts` named volume. Copy it back to the repo with:
+
+```powershell
+docker create --name fix-my-day-artifacts -v myday_build-artifacts:/artifacts alpine
+docker cp fix-my-day-artifacts:/artifacts ./build-artifacts
+docker rm fix-my-day-artifacts
+```
+
 Check a build:
 
 ```bash
@@ -120,6 +136,20 @@ Use this for Google Play production upload:
 docker compose run --rm fix-my-day npm run build:android
 ```
 
+Local Docker AAB build:
+
+```bash
+docker compose run --rm fix-my-day npm run build:android:aab:local
+```
+
+The AAB will be written inside Docker's `myday_build-artifacts` named volume. Copy it back to the repo with:
+
+```powershell
+docker create --name fix-my-day-artifacts -v myday_build-artifacts:/artifacts alpine
+docker cp fix-my-day-artifacts:/artifacts ./build-artifacts
+docker rm fix-my-day-artifacts
+```
+
 ### iOS later
 
 ```bash
@@ -141,3 +171,4 @@ iOS production builds require an Apple Developer account for signing. Android pr
 - Premium features are represented in `src/data/premiumFeatures.ts`.
 - Local progress can be cleared from Settings.
 - EAS requires Expo login or `EXPO_TOKEN`; this repo is otherwise ready for Android preview builds.
+- Local Android builds run in Docker with JDK 17, Android SDK command line tools, Android build tools, NDK/CMake, and a persistent Gradle cache. iOS local builds are not supported on Windows/Linux Docker because iOS requires macOS and Xcode.
