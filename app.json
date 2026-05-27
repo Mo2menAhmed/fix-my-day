@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Fix My Day",
+    "slug": "fix-my-day",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "fixmyday",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F6F2EA"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fixmyday.app",
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.fixmyday.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F6F2EA"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3122fe03-e38a-4557-9962-65da8c17cb39"
+      }
+    },
+    "owner": "m02menahmed"
+  }
+}

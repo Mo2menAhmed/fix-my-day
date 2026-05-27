@@ -1,0 +1,86 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import type { ChecklistProgress, CompletedPlan, UserPreferences } from "../types/recovery";
+
+const keys = {
+  completedPlans: "fixMyDay:completedPlans",
+  favoritePlans: "fixMyDay:favoritePlans",
+  checklistProgress: "fixMyDay:checklistProgress",
+  preferences: "fixMyDay:preferences"
+};
+
+export const defaultPreferences: UserPreferences = {
+  gentleMode: true,
+  soundEnabled: false,
+  defaultPlanMinutes: 25,
+  hasCompletedOnboarding: false
+};
+
+async function readJson<T>(key: string, fallback: T): Promise<T> {
+  try {
+    const value = await AsyncStorage.getItem(key);
+    return value ? (JSON.parse(value) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+async function writeJson<T>(key: string, value: T): Promise<void> {
+  await AsyncStorage.setItem(key, JSON.stringify(value));
+}
+
+export async function getCompletedPlans() {
+  return readJson<CompletedPlan[]>(keys.completedPlans, []);
+}
+
+export async function addCompletedPlan(completedPlan: CompletedPlan) {
+  const existing = await getCompletedPlans();
+  await writeJson(keys.completedPlans, [completedPlan, ...existing]);
+}
+
+export async function getFavoritePlans() {
+  return readJson<string[]>(keys.favoritePlans, []);
+}
+
+export async function toggleFavoritePlan(planId: string) {
+  const existing = await getFavoritePlans();
+  const next = existing.includes(planId)
+    ? existing.filter((id) => id !== planId)
+    : [...existing, planId];
+
+  await writeJson(keys.favoritePlans, next);
+  return next;
+}
+
+export async function getUserPreferences() {
+  const stored = await readJson<Partial<UserPreferences>>(keys.preferences, defaultPreferences);
+  return { ...defaultPreferences, ...stored };
+}
+
+export async function saveUserPreferences(preferences: UserPreferences) {
+  await writeJson(keys.preferences, preferences);
+}
+
+export async function clearProgress() {
+  await Promise.all([
+    AsyncStorage.removeItem(keys.completedPlans),
+    AsyncStorage.removeItem(keys.favoritePlans),
+    AsyncStorage.removeItem(keys.checklistProgress)
+  ]);
+}
+
+export async function getChecklistProgress(planId: string) {
+  const progress = await readJson<ChecklistProgress>(keys.checklistProgress, {});
+  return progress[planId] ?? [];
+}
+
+export async function saveChecklistProgress(planId: string, checkedItems: string[]) {
+  const progress = await readJson<ChecklistProgress>(keys.checklistProgress, {});
+  await writeJson(keys.checklistProgress, { ...progress, [planId]: checkedItems });
+}
+
+export async function clearChecklistProgress(planId: string) {
+  const progress = await readJson<ChecklistProgress>(keys.checklistProgress, {});
+  const next = { ...progress };
+  delete next[planId];
+  await writeJson(keys.checklistProgress, next);
+}

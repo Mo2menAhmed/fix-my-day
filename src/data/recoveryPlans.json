@@ -1,0 +1,234 @@
+[
+  {
+    "id": "wasted-morning-25",
+    "categoryId": "wasted-morning",
+    "category": "Wasted the morning",
+    "title": "Afternoon restart",
+    "shortEncouragement": "The day is not ruined. We only need one clean next hour.",
+    "totalTime": 25,
+    "steps": [
+      {
+        "id": "wm-1",
+        "title": "Reset the room",
+        "durationMinutes": 5,
+        "detail": "Open light, refill water, clear one small surface, and put your phone away."
+      },
+      {
+        "id": "wm-2",
+        "title": "Pick one useful task",
+        "durationMinutes": 5,
+        "detail": "Choose the smallest task that would make the day feel less lost."
+      },
+      {
+        "id": "wm-3",
+        "title": "Do a starter sprint",
+        "durationMinutes": 15,
+        "detail": "Work with low standards. The win is starting, not finishing everything."
+      }
+    ],
+    "checklistItems": ["Water nearby", "Phone out of reach", "One task chosen", "Timer started"]
+  },
+  {
+    "id": "overwhelmed-20",
+    "categoryId": "overwhelmed",
+    "category": "Feeling overwhelmed",
+    "title": "Make the pile smaller",
+    "shortEncouragement": "You do not need to solve your whole life. Just reduce the noise.",
+    "totalTime": 20,
+    "steps": [
+      {
+        "id": "ov-1",
+        "title": "Name the pressure",
+        "durationMinutes": 4,
+        "detail": "Write every open loop in short phrases. No sorting yet."
+      },
+      {
+        "id": "ov-2",
+        "title": "Sort into now, later, ignore",
+        "durationMinutes": 6,
+        "detail": "Mark only three things as now. Everything else can wait."
+      },
+      {
+        "id": "ov-3",
+        "title": "Close one loop",
+        "durationMinutes": 10,
+        "detail": "Send one message, tidy one item, or finish one tiny decision."
+      }
+    ],
+    "checklistItems": ["Brain dump done", "Three now items marked", "One loop closed"]
+  },
+  {
+    "id": "study-start-30",
+    "categoryId": "cannot-start-studying",
+    "category": "Cannot start studying",
+    "title": "Study warm start",
+    "shortEncouragement": "You are allowed to begin clumsily. Momentum is built after the first page.",
+    "totalTime": 30,
+    "steps": [
+      {
+        "id": "ss-1",
+        "title": "Prepare the runway",
+        "durationMinutes": 5,
+        "detail": "Open the exact material, clear distractions, and write the topic at the top of a page."
+      },
+      {
+        "id": "ss-2",
+        "title": "Preview lightly",
+        "durationMinutes": 5,
+        "detail": "Scan headings and examples. Turn one heading into a question."
+      },
+      {
+        "id": "ss-3",
+        "title": "Focus block",
+        "durationMinutes": 20,
+        "detail": "Answer one question, solve two problems, or summarize one section."
+      }
+    ],
+    "checklistItems": ["Material open", "One question written", "Distractions removed", "Focus block complete"]
+  },
+  {
+    "id": "workday-rescue-35",
+    "categoryId": "workday-rescue",
+    "category": "Workday rescue",
+    "title": "Professional rescue block",
+    "shortEncouragement": "A messy workday can still end with one solid delivery.",
+    "totalTime": 35,
+    "steps": [
+      {
+        "id": "wr-1",
+        "title": "Triage inbox and tasks",
+        "durationMinutes": 8,
+        "detail": "Find deadlines, blockers, and anything that affects another person today."
+      },
+      {
+        "id": "wr-2",
+        "title": "Send one stabilizing update",
+        "durationMinutes": 7,
+        "detail": "Tell someone what is done, what is next, or when they can expect a reply."
+      },
+      {
+        "id": "wr-3",
+        "title": "Ship the smallest useful piece",
+        "durationMinutes": 20,
+        "detail": "Finish a draft, review, ticket, or decision that lowers tomorrow's load."
+      }
+    ],
+    "checklistItems": ["Urgent items checked", "One update sent", "Small delivery shipped"]
+  },
+  {
+    "id": "clean-space-20",
+    "categoryId": "clean-space",
+    "category": "Need to clean my desk/room",
+    "title": "Visible-space reset",
+    "shortEncouragement": "You are not cleaning everything. You are making the next action easier.",
+    "totalTime": 20,
+    "steps": [
+      {
+        "id": "cs-1",
+        "title": "Trash and dishes",
+        "durationMinutes": 5,
+        "detail": "Remove obvious trash, cups, plates, and wrappers."
+      },
+      {
+        "id": "cs-2",
+        "title": "Sort into three piles",
+        "durationMinutes": 7,
+        "detail": "Make keep here, put away, and deal with later piles."
+      },
+      {
+        "id": "cs-3",
+        "title": "Make one clear zone",
+        "durationMinutes": 8,
+        "detail": "Clear the desk, bed corner, or floor area you most need tonight."
+      }
+    ],
+    "checklistItems": ["Trash removed", "Dishes moved", "One clear zone made"]
+  },
+  {
+    "id": "bad-sleep-15",
+    "categoryId": "bad-sleep-recovery",
+    "category": "Bad sleep recovery",
+    "title": "Low-energy recovery",
+    "shortEncouragement": "Today gets a gentler strategy. Protect the essentials.",
+    "totalTime": 15,
+    "steps": [
+      {
+        "id": "bs-1",
+        "title": "Stabilize your body",
+        "durationMinutes": 5,
+        "detail": "Drink water, eat something simple if needed, and get a little daylight."
+      },
+      {
+        "id": "bs-2",
+        "title": "Lower the bar",
+        "durationMinutes": 5,
+        "detail": "Choose must-do, nice-to-do, and skip without guilt."
+      },
+      {
+        "id": "bs-3",
+        "title": "Start gently",
+        "durationMinutes": 5,
+        "detail": "Do five minutes of the most important task, slowly."
+      }
+    ],
+    "checklistItems": ["Water", "Food checked", "Day simplified", "Five minutes started"]
+  },
+  {
+    "id": "before-bed-25",
+    "categoryId": "before-bed-reset",
+    "category": "Before bed reset",
+    "title": "Soft landing tonight",
+    "shortEncouragement": "You can close the day without judging it.",
+    "totalTime": 25,
+    "steps": [
+      {
+        "id": "bb-1",
+        "title": "Close screens and lights",
+        "durationMinutes": 5,
+        "detail": "Dim the room, charge your phone away from bed, and set a calm cue."
+      },
+      {
+        "id": "bb-2",
+        "title": "Tiny reset",
+        "durationMinutes": 10,
+        "detail": "Put away five items, prepare clothes, or clear your bedside area."
+      },
+      {
+        "id": "bb-3",
+        "title": "Release tomorrow",
+        "durationMinutes": 10,
+        "detail": "Write tomorrow's first task and one thing you are allowed to leave unfinished."
+      }
+    ],
+    "checklistItems": ["Phone charging away", "Five items reset", "Tomorrow's first task written"]
+  },
+  {
+    "id": "tomorrow-planning-20",
+    "categoryId": "tomorrow-planning",
+    "category": "Tomorrow planning",
+    "title": "Clear tomorrow map",
+    "shortEncouragement": "A simple tomorrow is easier to enter.",
+    "totalTime": 20,
+    "steps": [
+      {
+        "id": "tp-1",
+        "title": "Choose the three",
+        "durationMinutes": 6,
+        "detail": "Pick up to three meaningful outcomes for tomorrow."
+      },
+      {
+        "id": "tp-2",
+        "title": "Block the first hour",
+        "durationMinutes": 7,
+        "detail": "Decide what you will do first, where, and with which materials."
+      },
+      {
+        "id": "tp-3",
+        "title": "Remove friction",
+        "durationMinutes": 7,
+        "detail": "Set out anything that makes the first task easier to begin."
+      }
+    ],
+    "checklistItems": ["Three outcomes chosen", "First hour planned", "Materials ready"]
+  }
+]

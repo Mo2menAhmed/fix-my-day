@@ -1,0 +1,25 @@
+services:
+  fix-my-day:
+    build: .
+    container_name: fix-my-day
+    environment:
+      EXPO_DEVTOOLS_LISTEN_ADDRESS: 0.0.0.0
+      EXPO_TOKEN: ${EXPO_TOKEN:-}
+      EAS_NO_VCS: "1"
+      REACT_NATIVE_PACKAGER_HOSTNAME: localhost
+      CHOKIDAR_USEPOLLING: "true"
+      BROWSER: none
+    ports:
+      - "8082:8081"
+      - "19100:19000"
+      - "19101:19001"
+      - "19102:19002"
+    stdin_open: true
+    tty: true
+    volumes:
+      - expo-home:/root/.expo
+      - eas-home:/root/.eas
+
+volumes:
+  expo-home:
+  eas-home:
