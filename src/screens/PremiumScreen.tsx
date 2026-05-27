@@ -3,40 +3,50 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
 import { premiumFeatures } from "../data/premiumFeatures";
+import { useLanguage } from "../i18n/LanguageContext";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 import type { ScreenProps } from "../types/navigation";
 
 export function PremiumScreen({ navigation }: ScreenProps<"Premium">) {
+  const { language, rowDirection, t, textDirection } = useLanguage();
+
   return (
     <Screen>
       <SectionHeader
-        eyebrow="Coming later"
-        title="Premium resets"
-        body="Payments are not connected yet. This placeholder defines the upgrade surface for future testing."
+        eyebrow={t.premium.eyebrow}
+        title={t.premium.title}
+        body={t.premium.body}
       />
 
       <View style={styles.offer}>
-        <Text style={styles.price}>$0</Text>
-        <Text style={styles.offerTitle}>Preview only</Text>
-        <Text style={styles.offerBody}>
-          The app is fully usable with local plans today. Premium ideas are parked here so payments can be added cleanly later.
-        </Text>
+        <Text style={[styles.price, textDirection]}>{t.premium.label}</Text>
+        <Text style={[styles.offerTitle, textDirection]}>{t.premium.offerTitle}</Text>
+        <Text style={[styles.offerBody, textDirection]}>{t.premium.offerBody}</Text>
+      </View>
+
+      <View style={styles.noteCard}>
+        <Text style={[styles.noteTitle, textDirection]}>{t.premium.noteTitle}</Text>
+        <Text style={[styles.noteBody, textDirection]}>{t.premium.noteBody}</Text>
       </View>
 
       <View style={styles.features}>
-        {premiumFeatures.map((feature) => (
-          <View key={feature.id} style={styles.feature}>
+        <Text style={[styles.featuresTitle, textDirection]}>{t.premium.benefitsTitle}</Text>
+        {premiumFeatures.map((feature) => {
+          const localizedFeature = language === "en" ? feature : feature.translations?.[language] ?? feature;
+          return (
+          <View key={feature.id} style={[styles.feature, rowDirection]}>
             <View style={styles.dot} />
             <View style={styles.featureText}>
-              <Text style={styles.featureTitle}>{feature.title}</Text>
-              <Text style={styles.featureBody}>{feature.description}</Text>
+              <Text style={[styles.featureTitle, textDirection]}>{localizedFeature.title}</Text>
+              <Text style={[styles.featureBody, textDirection]}>{localizedFeature.description}</Text>
             </View>
           </View>
-        ))}
+        );
+        })}
       </View>
 
-      <PrimaryButton label="Back to settings" variant="soft" onPress={() => navigation.goBack()} />
+      <PrimaryButton label={t.premium.back} variant="soft" onPress={() => navigation.goBack()} />
     </Screen>
   );
 }
@@ -49,19 +59,37 @@ const styles = StyleSheet.create({
     padding: spacing.xl
   },
   price: {
-    color: colors.surface,
-    fontSize: 42,
-    fontWeight: "900"
+    color: colors.peach,
+    fontSize: 14,
+    fontWeight: "900",
+    textTransform: "uppercase"
   },
   offerTitle: {
     color: colors.surface,
-    fontSize: 20,
-    fontWeight: "900"
+    fontSize: 25,
+    fontWeight: "900",
+    lineHeight: 31
   },
   offerBody: {
     color: colors.mist,
     fontSize: 15,
     lineHeight: 22
+  },
+  noteCard: {
+    backgroundColor: colors.blue,
+    borderRadius: 8,
+    gap: spacing.xs,
+    padding: spacing.lg
+  },
+  noteTitle: {
+    color: colors.ink,
+    fontSize: 16,
+    fontWeight: "900"
+  },
+  noteBody: {
+    color: colors.muted,
+    fontSize: 14,
+    lineHeight: 20
   },
   features: {
     backgroundColor: colors.surface,
@@ -71,8 +99,12 @@ const styles = StyleSheet.create({
     gap: spacing.lg,
     padding: spacing.lg
   },
+  featuresTitle: {
+    color: colors.ink,
+    fontSize: 18,
+    fontWeight: "900"
+  },
   feature: {
-    flexDirection: "row",
     gap: spacing.md
   },
   dot: {

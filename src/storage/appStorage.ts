@@ -12,7 +12,8 @@ export const defaultPreferences: UserPreferences = {
   gentleMode: true,
   soundEnabled: false,
   defaultPlanMinutes: 25,
-  hasCompletedOnboarding: false
+  hasCompletedOnboarding: false,
+  language: "en"
 };
 
 async function readJson<T>(key: string, fallback: T): Promise<T> {
@@ -29,7 +30,21 @@ async function writeJson<T>(key: string, value: T): Promise<void> {
 }
 
 export async function getCompletedPlans() {
-  return readJson<CompletedPlan[]>(keys.completedPlans, []);
+  const stored = await readJson<CompletedPlan[]>(keys.completedPlans, []);
+  if (!Array.isArray(stored)) {
+    return [];
+  }
+
+  return stored.filter((plan) => {
+    return (
+      plan &&
+      typeof plan.planId === "string" &&
+      typeof plan.completedAt === "string" &&
+      !Number.isNaN(new Date(plan.completedAt).getTime()) &&
+      typeof plan.durationMinutes === "number" &&
+      Array.isArray(plan.checkedItems)
+    );
+  });
 }
 
 export async function addCompletedPlan(completedPlan: CompletedPlan) {
@@ -38,7 +53,8 @@ export async function addCompletedPlan(completedPlan: CompletedPlan) {
 }
 
 export async function getFavoritePlans() {
-  return readJson<string[]>(keys.favoritePlans, []);
+  const stored = await readJson<string[]>(keys.favoritePlans, []);
+  return Array.isArray(stored) ? stored.filter((planId) => typeof planId === "string") : [];
 }
 
 export async function toggleFavoritePlan(planId: string) {
@@ -63,7 +79,8 @@ export async function getUserPreferences() {
     hasCompletedOnboarding:
       typeof stored.hasCompletedOnboarding === "boolean"
         ? stored.hasCompletedOnboarding
-        : defaultPreferences.hasCompletedOnboarding
+        : defaultPreferences.hasCompletedOnboarding,
+    language: stored.language === "ar" || stored.language === "en" ? stored.language : defaultPreferences.language
   };
 }
 
@@ -81,7 +98,8 @@ export async function clearProgress() {
 
 export async function getChecklistProgress(planId: string) {
   const progress = await readJson<ChecklistProgress>(keys.checklistProgress, {});
-  return progress[planId] ?? [];
+  const planProgress = progress[planId];
+  return Array.isArray(planProgress) ? planProgress.filter((item) => typeof item === "string") : [];
 }
 
 export async function saveChecklistProgress(planId: string, checkedItems: string[]) {

@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useLanguage } from "../i18n/LanguageContext";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 
@@ -9,12 +10,14 @@ type ChecklistRowProps = {
 };
 
 export function ChecklistRow({ label, checked, onToggle }: ChecklistRowProps) {
+  const { rowDirection, textDirection } = useLanguage();
+
   return (
-    <Pressable onPress={onToggle} style={styles.row}>
+    <Pressable onPress={onToggle} style={[styles.row, rowDirection]}>
       <View style={[styles.box, checked && styles.boxChecked]}>
         {checked ? <Text style={styles.check}>OK</Text> : null}
       </View>
-      <Text style={[styles.label, checked && styles.done]}>{label}</Text>
+      <Text style={[styles.label, textDirection, checked && styles.done]}>{label}</Text>
     </Pressable>
   );
 }

@@ -23,6 +23,7 @@ The cloud path is faster and more reliable than local Android builds on Docker D
 - Reflection screen
 - Settings screen
 - First-run onboarding screen
+- English and Arabic language support saved locally
 - Premium placeholder screen for future payment work
 - Local JSON recovery templates
 - AsyncStorage persistence for completed plans, favorite plans, checklist progress, and user preferences
@@ -204,6 +205,7 @@ iOS production builds require an Apple Developer account for signing. Android pr
 ## Android Phone Testing
 
 Use [TESTING.md](./TESTING.md) for the manual QA checklist.
+Use [FEEDBACK_FORM.md](./FEEDBACK_FORM.md) for the 5-user feedback questions.
 Use [BUG_REPORT_TEMPLATE.md](./BUG_REPORT_TEMPLATE.md) when reporting tester issues.
 
 If the app installs but opens to a blank screen or closes immediately, capture Android logs:

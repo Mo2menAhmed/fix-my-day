@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, ViewStyle } from "react-native";
+import { useLanguage } from "../i18n/LanguageContext";
 import { colors } from "../theme/colors";
 
 type PrimaryButtonProps = {
@@ -10,6 +11,8 @@ type PrimaryButtonProps = {
 };
 
 export function PrimaryButton({ label, onPress, variant = "filled", disabled, style }: PrimaryButtonProps) {
+  const { isArabic } = useLanguage();
+
   return (
     <Pressable
       disabled={disabled}
@@ -22,7 +25,7 @@ export function PrimaryButton({ label, onPress, variant = "filled", disabled, st
         style
       ]}
     >
-      <Text style={[styles.label, variant !== "filled" && styles.darkLabel]}>{label}</Text>
+      <Text style={[styles.label, { writingDirection: isArabic ? "rtl" : "ltr" }, variant !== "filled" && styles.darkLabel]}>{label}</Text>
     </Pressable>
   );
 }
@@ -53,7 +56,8 @@ const styles = StyleSheet.create({
   label: {
     color: colors.surface,
     fontSize: 16,
-    fontWeight: "700"
+    fontWeight: "700",
+    textAlign: "center"
   },
   darkLabel: {
     color: colors.ink

@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import { useLanguage } from "../i18n/LanguageContext";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 
@@ -9,11 +10,13 @@ type SectionHeaderProps = {
 };
 
 export function SectionHeader({ eyebrow, title, body }: SectionHeaderProps) {
+  const { textDirection } = useLanguage();
+
   return (
     <View style={styles.wrapper}>
-      {eyebrow ? <Text style={styles.eyebrow}>{eyebrow}</Text> : null}
-      <Text style={styles.title}>{title}</Text>
-      {body ? <Text style={styles.body}>{body}</Text> : null}
+      {eyebrow ? <Text style={[styles.eyebrow, textDirection]}>{eyebrow}</Text> : null}
+      <Text style={[styles.title, textDirection]}>{title}</Text>
+      {body ? <Text style={[styles.body, textDirection]}>{body}</Text> : null}
     </View>
   );
 }

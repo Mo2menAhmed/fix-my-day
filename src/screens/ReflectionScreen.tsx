@@ -4,15 +4,17 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
 import { getPlanById } from "../data/plans";
+import { useLanguage } from "../i18n/LanguageContext";
 import { addCompletedPlan, clearChecklistProgress, getChecklistProgress } from "../storage/appStorage";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 import type { ScreenProps } from "../types/navigation";
 
 export function ReflectionScreen({ navigation, route }: ScreenProps<"Reflection">) {
-  const plan = getPlanById(route.params.planId);
+  const { language, t, textDirection } = useLanguage();
+  const plan = getPlanById(route.params.planId, language);
   const [reflection, setReflection] = useState("");
-  const [moodAfter, setMoodAfter] = useState("steadier");
+  const [moodAfter, setMoodAfter] = useState(t.reflection.moods[0]);
   const [saved, setSaved] = useState(false);
 
   async function saveReflection() {
@@ -36,19 +38,19 @@ export function ReflectionScreen({ navigation, route }: ScreenProps<"Reflection"
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={styles.keyboard}>
       <Screen>
         <SectionHeader
-          eyebrow={plan?.category ?? "Reflection"}
-          title="Capture the win"
-          body="A short note helps the app remember what worked. One sentence is enough."
+          eyebrow={plan?.category ?? t.reflection.title}
+          title={t.reflection.title}
+          body={t.reflection.body}
         />
 
         <View style={styles.panel}>
-          <Text style={styles.label}>How do you feel now?</Text>
+          <Text style={[styles.label, textDirection]}>{t.reflection.label}</Text>
           <View style={styles.moods}>
-            {["steadier", "lighter", "still tired"].map((mood) => (
+            {t.reflection.moods.map((mood) => (
               <Text
                 key={mood}
                 onPress={() => setMoodAfter(mood)}
-                style={[styles.mood, moodAfter === mood && styles.moodSelected]}
+                style={[styles.mood, textDirection, moodAfter === mood && styles.moodSelected]}
               >
                 {mood}
               </Text>
@@ -57,13 +59,13 @@ export function ReflectionScreen({ navigation, route }: ScreenProps<"Reflection"
         </View>
 
         <View style={styles.panel}>
-          <Text style={styles.label}>One sentence is enough</Text>
+          <Text style={[styles.label, textDirection]}>{t.reflection.noteLabel}</Text>
           <TextInput
             multiline
             onChangeText={setReflection}
-            placeholder="I feel less stuck because..."
+            placeholder={t.reflection.placeholder}
             placeholderTextColor={colors.muted}
-            style={styles.input}
+            style={[styles.input, textDirection]}
             textAlignVertical="top"
             value={reflection}
           />
@@ -71,14 +73,14 @@ export function ReflectionScreen({ navigation, route }: ScreenProps<"Reflection"
 
         {saved ? (
           <View style={styles.savedPanel}>
-            <Text style={styles.savedTitle}>Saved</Text>
-            <Text style={styles.savedText}>This plan was added to your completed plans.</Text>
+            <Text style={[styles.savedTitle, textDirection]}>{t.reflection.savedTitle}</Text>
+            <Text style={[styles.savedText, textDirection]}>{t.reflection.savedText}</Text>
           </View>
         ) : null}
 
         <View style={styles.actions}>
-          <PrimaryButton label={saved ? "Saved locally" : "Save completed session"} disabled={saved} onPress={saveReflection} />
-          <PrimaryButton label="Back home" variant="soft" onPress={() => navigation.popToTop()} />
+          <PrimaryButton label={saved ? t.reflection.savedButton : t.reflection.save} disabled={saved} onPress={saveReflection} />
+          <PrimaryButton label={t.reflection.backHome} variant="soft" onPress={() => navigation.popToTop()} />
         </View>
       </Screen>
     </KeyboardAvoidingView>

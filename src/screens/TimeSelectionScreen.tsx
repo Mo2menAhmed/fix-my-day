@@ -5,6 +5,7 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
 import { getPlanByCategory } from "../data/plans";
+import { useLanguage } from "../i18n/LanguageContext";
 import { getUserPreferences } from "../storage/appStorage";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
@@ -13,14 +14,15 @@ import type { ScreenProps } from "../types/navigation";
 const options = [10, 15, 20, 25, 30, 35, 45];
 
 export function TimeSelectionScreen({ navigation, route }: ScreenProps<"TimeSelection">) {
-  const plan = getPlanByCategory(route.params.categoryId);
+  const { language, t, textDirection } = useLanguage();
+  const plan = getPlanByCategory(route.params.categoryId, undefined, language);
   const [selectedMinutes, setSelectedMinutes] = useState(plan?.totalTime ?? 25);
 
   useEffect(() => {
     getUserPreferences().then((preferences) => {
       setSelectedMinutes(preferences.defaultPlanMinutes || plan?.totalTime || 25);
     });
-  }, []);
+  }, [plan?.totalTime]);
 
   const availableOptions = useMemo(() => {
     const merged = new Set([...options, plan?.totalTime ?? 25]);
@@ -30,7 +32,7 @@ export function TimeSelectionScreen({ navigation, route }: ScreenProps<"TimeSele
   if (!plan) {
     return (
       <Screen>
-        <SectionHeader title="Plan not found" body="Go back and choose another recovery category." />
+        <SectionHeader title={t.recovery.notFoundTitle} body={t.recovery.notFoundBody} />
       </Screen>
     );
   }
@@ -39,13 +41,17 @@ export function TimeSelectionScreen({ navigation, route }: ScreenProps<"TimeSele
     <Screen>
       <SectionHeader
         eyebrow={plan.category}
-        title="Choose a realistic reset"
-        body="The plan adapts to the time you have. Pick the option you would actually do today."
+        title={t.timeSelection.headerTitle}
+        body={t.timeSelection.headerBody}
       />
 
       <View style={styles.preview}>
-        <Text style={styles.previewTitle}>{plan.title}</Text>
-        <Text style={styles.previewText}>{plan.steps.length} steps, {plan.checklistItems.length} checklist items, designed for {plan.totalTime} minutes.</Text>
+        <Text style={[styles.previewTitle, textDirection]}>{plan.title}</Text>
+        <Text style={[styles.previewText, textDirection]}>{plan.categoryPrompt}</Text>
+        <Text style={[styles.quickWin, textDirection]}>{t.timeSelection.quickWin}: {plan.quickWin}</Text>
+        <Text style={[styles.previewText, textDirection]}>
+          {plan.steps.length} {t.timeSelection.planDetails} {plan.totalTime} {t.common.minutesShort}.
+        </Text>
       </View>
 
       <View style={styles.options}>
@@ -53,15 +59,15 @@ export function TimeSelectionScreen({ navigation, route }: ScreenProps<"TimeSele
           <PlanCard
             key={minutes}
             selected={selectedMinutes === minutes}
-            title={`${minutes} minutes`}
-            subtitle={minutes < plan.totalTime ? "Compressed rescue plan" : minutes === plan.totalTime ? "Recommended pace" : "Roomier recovery pace"}
+            title={`${minutes} ${t.common.minutesShort}`}
+            subtitle={minutes < plan.totalTime ? t.timeSelection.compressed : minutes === plan.totalTime ? t.timeSelection.recommended : t.timeSelection.roomy}
             onPress={() => setSelectedMinutes(minutes)}
           />
         ))}
       </View>
 
       <PrimaryButton
-        label="Build my plan"
+        label={t.timeSelection.button}
         onPress={() =>
           navigation.navigate("RecoveryPlan", {
             categoryId: route.params.categoryId,
@@ -90,6 +96,12 @@ const styles = StyleSheet.create({
   previewText: {
     color: colors.muted,
     fontSize: 14,
+    lineHeight: 20
+  },
+  quickWin: {
+    color: colors.ink,
+    fontSize: 14,
+    fontWeight: "800",
     lineHeight: 20
   },
   options: {

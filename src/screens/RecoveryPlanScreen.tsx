@@ -5,13 +5,15 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
 import { getPlanByCategory } from "../data/plans";
+import { useLanguage } from "../i18n/LanguageContext";
 import { getChecklistProgress, getFavoritePlans, saveChecklistProgress, toggleFavoritePlan } from "../storage/appStorage";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 import type { ScreenProps } from "../types/navigation";
 
 export function RecoveryPlanScreen({ navigation, route }: ScreenProps<"RecoveryPlan">) {
-  const plan = getPlanByCategory(route.params.categoryId, route.params.selectedMinutes);
+  const { language, rowDirection, t, textDirection } = useLanguage();
+  const plan = getPlanByCategory(route.params.categoryId, route.params.selectedMinutes, language);
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
@@ -29,7 +31,7 @@ export function RecoveryPlanScreen({ navigation, route }: ScreenProps<"RecoveryP
   if (!plan) {
     return (
       <Screen>
-        <SectionHeader title="Plan not found" body="Go back and choose another recovery category." />
+        <SectionHeader title={t.recovery.notFoundTitle} body={t.recovery.notFoundBody} />
       </Screen>
     );
   }
@@ -51,12 +53,13 @@ export function RecoveryPlanScreen({ navigation, route }: ScreenProps<"RecoveryP
 
   return (
     <Screen>
-      <SectionHeader eyebrow={`${plan.totalTime} minutes`} title={plan.title} body={plan.shortEncouragement} />
+      <SectionHeader eyebrow={`${plan.totalTime} ${t.recovery.minutesReset}`} title={plan.title} body={plan.shortEncouragement} />
 
       <View style={styles.personalCard}>
-        <Text style={styles.personalTitle}>Your reset for right now</Text>
-        <Text style={styles.personalBody}>
-          Start with the first step, then let the timer carry the rest. You can finish this plan even if the day stays imperfect.
+        <Text style={[styles.personalLabel, textDirection]}>{t.recovery.builtFor}</Text>
+        <Text style={[styles.personalTitle, textDirection]}>{t.recovery.chose}: {plan.category}</Text>
+        <Text style={[styles.personalBody, textDirection]}>
+          {t.recovery.bodyPrefix} {plan.totalTime} {t.recovery.bodySuffix}
         </Text>
         <View style={styles.progressTrack}>
           <View
@@ -66,26 +69,32 @@ export function RecoveryPlanScreen({ navigation, route }: ScreenProps<"RecoveryP
             ]}
           />
         </View>
-        <Text style={styles.progressText}>{checkedItems.length} of {plan.checklistItems.length} checklist items ready</Text>
+        <Text style={[styles.progressText, textDirection]}>{checkedItems.length} / {plan.checklistItems.length} {t.recovery.checklistReady}</Text>
+      </View>
+
+      <View style={styles.quickWinCard}>
+        <Text style={[styles.quickWinLabel, textDirection]}>{t.recovery.quickWin}</Text>
+        <Text style={[styles.quickWinText, textDirection]}>{plan.quickWin}</Text>
       </View>
 
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>Plan steps</Text>
+        <Text style={[styles.panelTitle, textDirection]}>{t.recovery.stepsTitle}</Text>
         {plan.steps.map((step, index) => (
-          <View key={step.id} style={styles.step}>
+          <View key={step.id} style={[styles.step, rowDirection]}>
             <View style={styles.stepNumber}>
               <Text style={styles.stepNumberText}>{index + 1}</Text>
             </View>
             <View style={styles.stepText}>
-              <Text style={styles.stepTitle}>{step.title}</Text>
-              <Text style={styles.stepDetail}>{step.durationMinutes} min - {step.detail}</Text>
+              <Text style={[styles.stepTitle, textDirection]}>{step.title}</Text>
+              <Text style={[styles.stepDetail, textDirection]}>{step.durationMinutes} {t.common.minutesShort}</Text>
+              <Text style={[styles.stepDetail, textDirection]}>{step.detail}</Text>
             </View>
           </View>
         ))}
       </View>
 
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>Quick checklist</Text>
+        <Text style={[styles.panelTitle, textDirection]}>{t.recovery.checklistTitle}</Text>
         {plan.checklistItems.map((item) => (
           <ChecklistRow
             key={item}
@@ -98,7 +107,7 @@ export function RecoveryPlanScreen({ navigation, route }: ScreenProps<"RecoveryP
 
       <View style={styles.actions}>
         <PrimaryButton
-          label="Start focus timer"
+          label={t.recovery.startTimer}
           onPress={() =>
             navigation.navigate("FocusTimer", {
               planId: plan.id,
@@ -107,7 +116,7 @@ export function RecoveryPlanScreen({ navigation, route }: ScreenProps<"RecoveryP
             })
           }
         />
-        <PrimaryButton label={isFavorite ? "Remove favorite" : "Save as favorite"} variant="soft" onPress={onFavoritePress} />
+        <PrimaryButton label={isFavorite ? t.recovery.removeFavorite : t.recovery.saveFavorite} variant="soft" onPress={onFavoritePress} />
       </View>
     </Screen>
   );
@@ -164,6 +173,12 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     padding: spacing.lg
   },
+  personalLabel: {
+    color: colors.peach,
+    fontSize: 12,
+    fontWeight: "900",
+    textTransform: "uppercase"
+  },
   personalTitle: {
     color: colors.surface,
     fontSize: 18,
@@ -189,6 +204,24 @@ const styles = StyleSheet.create({
     color: colors.mist,
     fontSize: 13,
     fontWeight: "700"
+  },
+  quickWinCard: {
+    backgroundColor: colors.peach,
+    borderRadius: 8,
+    gap: spacing.xs,
+    padding: spacing.lg
+  },
+  quickWinLabel: {
+    color: colors.warning,
+    fontSize: 12,
+    fontWeight: "900",
+    textTransform: "uppercase"
+  },
+  quickWinText: {
+    color: colors.ink,
+    fontSize: 18,
+    fontWeight: "900",
+    lineHeight: 25
   },
   actions: {
     gap: spacing.md

@@ -5,6 +5,8 @@ import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ErrorBoundary } from "./src/components/ErrorBoundary";
+import { LanguageProvider, useLanguage } from "./src/i18n/LanguageContext";
+import type { LanguageCode } from "./src/i18n/translations";
 import { FocusTimerScreen } from "./src/screens/FocusTimerScreen";
 import { HomeScreen } from "./src/screens/HomeScreen";
 import { OnboardingScreen } from "./src/screens/OnboardingScreen";
@@ -19,8 +21,13 @@ import { RootStackParamList } from "./src/types/navigation";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+type BootstrapState = {
+  initialRouteName: keyof RootStackParamList;
+  language: LanguageCode;
+};
+
 export default function App() {
-  const [initialRouteName, setInitialRouteName] = useState<keyof RootStackParamList | null>(null);
+  const [bootstrap, setBootstrap] = useState<BootstrapState | null>(null);
 
   useEffect(() => {
     console.info(`[FixMyDay] App startup on ${Platform.OS}`);
@@ -28,15 +35,15 @@ export default function App() {
       .then((preferences) => {
         const nextRoute = preferences.hasCompletedOnboarding ? "Home" : "Onboarding";
         console.info(`[FixMyDay] Initial route resolved: ${nextRoute}`);
-        setInitialRouteName(nextRoute);
+        setBootstrap({ initialRouteName: nextRoute, language: preferences.language });
       })
       .catch((error) => {
         console.error("[FixMyDay] Failed to read preferences, using onboarding fallback", error);
-        setInitialRouteName("Onboarding");
+        setBootstrap({ initialRouteName: "Onboarding", language: "en" });
       });
   }, []);
 
-  if (!initialRouteName) {
+  if (!bootstrap) {
     return (
       <View style={styles.loading}>
         <Text style={styles.loadingText}>Fix My Day</Text>
@@ -46,31 +53,60 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
-          <Stack.Navigator
-            initialRouteName={initialRouteName}
-            screenOptions={{
-              headerStyle: { backgroundColor: colors.background },
-              headerShadowVisible: false,
-              headerTintColor: colors.ink,
-              headerTitleStyle: { fontWeight: "700" },
-              contentStyle: { backgroundColor: colors.background }
-            }}
-          >
-            <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Fix My Day" }} />
-            <Stack.Screen name="TimeSelection" component={TimeSelectionScreen} options={{ title: "Choose time" }} />
-            <Stack.Screen name="RecoveryPlan" component={RecoveryPlanScreen} options={{ title: "Recovery plan" }} />
-            <Stack.Screen name="FocusTimer" component={FocusTimerScreen} options={{ title: "Focus timer" }} />
-            <Stack.Screen name="Reflection" component={ReflectionScreen} options={{ title: "Reflect" }} />
-            <Stack.Screen name="Settings" component={SettingsScreen} options={{ title: "Settings" }} />
-            <Stack.Screen name="Premium" component={PremiumScreen} options={{ title: "Premium" }} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <LanguageProvider initialLanguage={bootstrap.language}>
+        <SafeAreaProvider>
+          <AppNavigator initialRouteName={bootstrap.initialRouteName} />
+        </SafeAreaProvider>
+      </LanguageProvider>
     </ErrorBoundary>
+  );
+}
+
+function AppNavigator({ initialRouteName }: { initialRouteName: keyof RootStackParamList }) {
+  const { language } = useLanguage();
+  const title = language === "ar"
+    ? {
+        home: "Fix My Day",
+        time: "اختيار الوقت",
+        plan: "خطة الاستعادة",
+        timer: "مؤقت التركيز",
+        reflection: "تأمل",
+        settings: "الإعدادات",
+        premium: "بريميوم"
+      }
+    : {
+        home: "Fix My Day",
+        time: "Choose time",
+        plan: "Recovery plan",
+        timer: "Focus timer",
+        reflection: "Reflect",
+        settings: "Settings",
+        premium: "Premium"
+      };
+
+  return (
+    <NavigationContainer>
+      <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
+      <Stack.Navigator
+        initialRouteName={initialRouteName}
+        screenOptions={{
+          headerStyle: { backgroundColor: colors.background },
+          headerShadowVisible: false,
+          headerTintColor: colors.ink,
+          headerTitleStyle: { fontWeight: "700" },
+          contentStyle: { backgroundColor: colors.background }
+        }}
+      >
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: title.home }} />
+        <Stack.Screen name="TimeSelection" component={TimeSelectionScreen} options={{ title: title.time }} />
+        <Stack.Screen name="RecoveryPlan" component={RecoveryPlanScreen} options={{ title: title.plan }} />
+        <Stack.Screen name="FocusTimer" component={FocusTimerScreen} options={{ title: title.timer }} />
+        <Stack.Screen name="Reflection" component={ReflectionScreen} options={{ title: title.reflection }} />
+        <Stack.Screen name="Settings" component={SettingsScreen} options={{ title: title.settings }} />
+        <Stack.Screen name="Premium" component={PremiumScreen} options={{ title: title.premium }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

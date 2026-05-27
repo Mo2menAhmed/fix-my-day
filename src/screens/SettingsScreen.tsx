@@ -3,6 +3,8 @@ import { Alert, Pressable, StyleSheet, Switch, Text, View } from "react-native";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
+import { useLanguage } from "../i18n/LanguageContext";
+import { languageLabels, type LanguageCode } from "../i18n/translations";
 import {
   clearProgress,
   defaultPreferences,
@@ -19,6 +21,7 @@ import type { UserPreferences } from "../types/recovery";
 const minuteOptions = [10, 15, 20, 25, 30, 35, 45];
 
 export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
+  const { language, setLanguage, t, textDirection } = useLanguage();
   const [preferences, setPreferences] = useState<UserPreferences>(defaultPreferences);
   const [completedCount, setCompletedCount] = useState(0);
   const [favoriteCount, setFavoriteCount] = useState(0);
@@ -38,11 +41,16 @@ export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
     await saveUserPreferences(next);
   }
 
+  async function updateLanguage(nextLanguage: LanguageCode) {
+    await setLanguage(nextLanguage);
+    setPreferences((current) => ({ ...current, language: nextLanguage }));
+  }
+
   function confirmClearProgress() {
-    Alert.alert("Clear progress?", "Completed and favorite plans will be removed from this device.", [
-      { text: "Cancel", style: "cancel" },
+    Alert.alert(t.settings.clearTitle, t.settings.clearBody, [
+      { text: t.settings.cancel, style: "cancel" },
       {
-        text: "Clear",
+        text: t.settings.clear,
         style: "destructive",
         onPress: async () => {
           await clearProgress();
@@ -56,26 +64,43 @@ export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
   return (
     <Screen>
       <SectionHeader
-        title="Settings"
-        body="Your plans stay local on this device. Adjust the default reset length, review progress, or preview future premium ideas."
+        title={t.settings.title}
+        body={t.settings.body}
       />
 
       <View style={styles.panel}>
+        <Text style={[styles.panelTitle, textDirection]}>{t.settings.languageTitle}</Text>
+        <View style={styles.languageOptions}>
+          {(["en", "ar"] as LanguageCode[]).map((option) => (
+            <Pressable
+              key={option}
+              onPress={() => updateLanguage(option)}
+              style={[styles.languageButton, language === option && styles.languageButtonSelected]}
+            >
+              <Text style={[styles.languageText, language === option && styles.languageTextSelected]}>
+                {languageLabels[option]}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.panel}>
         <SettingSwitch
-          label="Gentle mode"
+          label={t.settings.gentleMode}
           value={preferences.gentleMode}
           onValueChange={(value) => updatePreferences({ ...preferences, gentleMode: value })}
         />
         <SettingSwitch
-          label="Sound cues"
+          label={t.settings.soundCues}
           value={preferences.soundEnabled}
           onValueChange={(value) => updatePreferences({ ...preferences, soundEnabled: value })}
         />
       </View>
 
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>Default plan length</Text>
-        <Text style={styles.panelBody}>Used as the first suggestion before each recovery plan.</Text>
+        <Text style={[styles.panelTitle, textDirection]}>{t.settings.defaultLength}</Text>
+        <Text style={[styles.panelBody, textDirection]}>{t.settings.defaultLengthBody}</Text>
         <View style={styles.minutes}>
           {minuteOptions.map((minutes) => (
             <Pressable
@@ -100,32 +125,32 @@ export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
       </View>
 
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>Local progress</Text>
+        <Text style={[styles.panelTitle, textDirection]}>{t.settings.localProgress}</Text>
         {completedCount === 0 && favoriteCount === 0 ? (
-          <Text style={styles.stat}>No saved sessions yet. Complete a reset and it will show up here.</Text>
+          <Text style={[styles.stat, textDirection]}>{t.settings.noSessions}</Text>
         ) : (
           <>
-            <Text style={styles.stat}>{completedCount} completed plans</Text>
-            <Text style={styles.stat}>{favoriteCount} favorite plans</Text>
+            <Text style={[styles.stat, textDirection]}>{completedCount} {t.settings.completedPlans}</Text>
+            <Text style={[styles.stat, textDirection]}>{favoriteCount} {t.settings.favoritePlans}</Text>
           </>
         )}
       </View>
 
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>Premium placeholder</Text>
-        <Text style={styles.panelBody}>Payments are not connected. This screen is ready for future upgrade testing.</Text>
-        <PrimaryButton label="Preview premium" variant="soft" onPress={() => navigation.navigate("Premium")} />
+        <Text style={[styles.panelTitle, textDirection]}>{t.settings.premiumTitle}</Text>
+        <Text style={[styles.panelBody, textDirection]}>{t.settings.premiumBody}</Text>
+        <PrimaryButton label={t.settings.previewPremium} variant="soft" onPress={() => navigation.navigate("Premium")} />
       </View>
 
       <PrimaryButton
-        label="Show onboarding again"
+        label={t.settings.showOnboarding}
         variant="soft"
         onPress={async () => {
           await updatePreferences({ ...preferences, hasCompletedOnboarding: false });
           navigation.replace("Onboarding");
         }}
       />
-      <PrimaryButton label="Clear local progress" variant="ghost" onPress={confirmClearProgress} />
+      <PrimaryButton label={t.settings.clearProgress} variant="ghost" onPress={confirmClearProgress} />
     </Screen>
   );
 }
@@ -137,9 +162,11 @@ type SettingSwitchProps = {
 };
 
 function SettingSwitch({ label, value, onValueChange }: SettingSwitchProps) {
+  const { rowDirection, textDirection } = useLanguage();
+
   return (
-    <View style={styles.switchRow}>
-      <Text style={styles.switchLabel}>{label}</Text>
+    <View style={[styles.switchRow, rowDirection]}>
+      <Text style={[styles.switchLabel, textDirection]}>{label}</Text>
       <Switch
         onValueChange={onValueChange}
         thumbColor={value ? colors.surface : colors.surfaceMuted}
@@ -169,9 +196,35 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20
   },
+  languageOptions: {
+    flexDirection: "row",
+    gap: spacing.sm
+  },
+  languageButton: {
+    alignItems: "center",
+    backgroundColor: colors.background,
+    borderColor: colors.line,
+    borderRadius: 8,
+    borderWidth: 1,
+    flex: 1,
+    minHeight: 46,
+    justifyContent: "center",
+    paddingHorizontal: spacing.md
+  },
+  languageButtonSelected: {
+    backgroundColor: colors.accentDark,
+    borderColor: colors.accentDark
+  },
+  languageText: {
+    color: colors.ink,
+    fontSize: 15,
+    fontWeight: "800"
+  },
+  languageTextSelected: {
+    color: colors.surface
+  },
   switchRow: {
     alignItems: "center",
-    flexDirection: "row",
     justifyContent: "space-between",
     minHeight: 44
   },

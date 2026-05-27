@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useLanguage } from "../i18n/LanguageContext";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 
@@ -12,23 +13,26 @@ type PlanCardProps = {
 };
 
 export function PlanCard({ title, subtitle, minutes, tag, selected, onPress }: PlanCardProps) {
+  const { rowDirection, textDirection, t } = useLanguage();
+
   return (
     <Pressable
       onPress={onPress}
       style={({ pressed }) => [
         styles.card,
+        rowDirection,
         selected && styles.selected,
         pressed && styles.pressed
       ]}
     >
       <View style={styles.textGroup}>
-        {tag ? <Text style={styles.tag}>{tag}</Text> : null}
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>
+        {tag ? <Text style={[styles.tag, textDirection]}>{tag}</Text> : null}
+        <Text style={[styles.title, textDirection]}>{title}</Text>
+        <Text style={[styles.subtitle, textDirection]}>{subtitle}</Text>
       </View>
       {minutes ? (
         <View style={styles.pill}>
-          <Text style={styles.pillText}>{minutes}m</Text>
+          <Text style={styles.pillText}>{minutes}{t.common.minutesShort}</Text>
         </View>
       ) : null}
     </Pressable>

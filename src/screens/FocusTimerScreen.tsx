@@ -4,12 +4,14 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
 import { getPlanById } from "../data/plans";
+import { useLanguage } from "../i18n/LanguageContext";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 import type { ScreenProps } from "../types/navigation";
 
 export function FocusTimerScreen({ navigation, route }: ScreenProps<"FocusTimer">) {
-  const plan = getPlanById(route.params.planId);
+  const { language, t, textDirection } = useLanguage();
+  const plan = getPlanById(route.params.planId, language);
   const initialSeconds = route.params.minutes * 60;
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
@@ -50,45 +52,45 @@ export function FocusTimerScreen({ navigation, route }: ScreenProps<"FocusTimer"
   }
 
   const statusLabel = secondsLeft === 0
-    ? "Complete"
+    ? t.timer.complete
     : isRunning
-      ? "In progress"
+      ? t.timer.inProgress
       : secondsLeft === initialSeconds
-        ? "Ready"
-        : "Paused";
+        ? t.timer.ready
+        : t.timer.paused;
 
   return (
     <Screen scroll={false}>
       <View style={styles.wrapper}>
         <SectionHeader
-          eyebrow={plan?.category ?? "Focus"}
-          title={plan?.title ?? "Recovery focus"}
-          body="This is a protected block. Work gently, ignore the rest, and stop when the timer stops."
+          eyebrow={plan?.category ?? t.timer.focus}
+          title={plan?.title ?? t.timer.recoveryFocus}
+          body={t.timer.body}
         />
 
         <View style={styles.timerCard}>
-          <Text style={styles.status}>{statusLabel}</Text>
+          <Text style={[styles.status, textDirection]}>{statusLabel}</Text>
           <Text style={styles.timer}>{timeLabel}</Text>
           <View style={styles.progressTrack}>
             <View style={[styles.progressFill, { width: `${Math.round(progress * 100)}%` }]} />
           </View>
-          <Text style={styles.timerHint}>
+          <Text style={[styles.timerHint, textDirection]}>
             {secondsLeft === 0
-              ? "Nice. Save the win while it is fresh."
+              ? t.timer.completeHint
               : isRunning
-                ? "Stay with only the next step."
-                : "Start, pause, or reset whenever you need."}
+                ? t.timer.runningHint
+                : t.timer.readyHint}
           </Text>
         </View>
 
         <View style={styles.actions}>
           <PrimaryButton
-            label={isRunning ? "Pause block" : secondsLeft === 0 ? "Run it again" : "Start block"}
+            label={isRunning ? t.timer.pause : secondsLeft === 0 ? t.timer.runAgain : t.timer.start}
             onPress={() => (secondsLeft === 0 ? resetTimer() : setIsRunning((current) => !current))}
           />
-          <PrimaryButton label="Reset timer" variant="ghost" onPress={resetTimer} />
+          <PrimaryButton label={t.timer.reset} variant="ghost" onPress={resetTimer} />
           <PrimaryButton
-            label={secondsLeft === 0 ? "Save completion" : "Finish and reflect"}
+            label={secondsLeft === 0 ? t.timer.saveCompletion : t.timer.finishReflect}
             variant="soft"
             onPress={() => navigation.navigate("Reflection", { planId: route.params.planId, minutes: route.params.minutes })}
           />

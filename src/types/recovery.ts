@@ -1,3 +1,5 @@
+import type { LanguageCode } from "../i18n/translations";
+
 export type ProblemCategoryId =
   | "wasted-morning"
   | "overwhelmed"
@@ -15,15 +17,28 @@ export type PlanStep = {
   detail: string;
 };
 
+export type RecoveryPlanTranslation = {
+  category: string;
+  categoryPrompt: string;
+  title: string;
+  shortEncouragement: string;
+  quickWin: string;
+  steps: Array<Pick<PlanStep, "id" | "title" | "detail">>;
+  checklistItems: string[];
+};
+
 export type RecoveryPlan = {
   id: string;
   categoryId: ProblemCategoryId;
   category: string;
+  categoryPrompt: string;
   title: string;
   shortEncouragement: string;
+  quickWin: string;
   totalTime: number;
   steps: PlanStep[];
   checklistItems: string[];
+  translations?: Partial<Record<Exclude<LanguageCode, "en">, RecoveryPlanTranslation>>;
 };
 
 export type CompletedPlan = {
@@ -41,6 +56,7 @@ export type UserPreferences = {
   soundEnabled: boolean;
   defaultPlanMinutes: number;
   hasCompletedOnboarding: boolean;
+  language: LanguageCode;
 };
 
 export type ChecklistProgress = Record<string, string[]>;
@@ -50,4 +66,5 @@ export type PremiumFeature = {
   title: string;
   description: string;
   available: boolean;
+  translations?: Partial<Record<Exclude<LanguageCode, "en">, { title: string; description: string }>>;
 };
