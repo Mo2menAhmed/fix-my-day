@@ -53,7 +53,18 @@ export async function toggleFavoritePlan(planId: string) {
 
 export async function getUserPreferences() {
   const stored = await readJson<Partial<UserPreferences>>(keys.preferences, defaultPreferences);
-  return { ...defaultPreferences, ...stored };
+  return {
+    gentleMode: typeof stored.gentleMode === "boolean" ? stored.gentleMode : defaultPreferences.gentleMode,
+    soundEnabled: typeof stored.soundEnabled === "boolean" ? stored.soundEnabled : defaultPreferences.soundEnabled,
+    defaultPlanMinutes:
+      typeof stored.defaultPlanMinutes === "number" && Number.isFinite(stored.defaultPlanMinutes)
+        ? stored.defaultPlanMinutes
+        : defaultPreferences.defaultPlanMinutes,
+    hasCompletedOnboarding:
+      typeof stored.hasCompletedOnboarding === "boolean"
+        ? stored.hasCompletedOnboarding
+        : defaultPreferences.hasCompletedOnboarding
+  };
 }
 
 export async function saveUserPreferences(preferences: UserPreferences) {

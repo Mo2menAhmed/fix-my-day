@@ -2,6 +2,17 @@
 
 A calming React Native Expo app for recovering from a stressful, unproductive, or messy day.
 
+## Quick Recommendation
+
+For first Android user testing, use the EAS cloud APK build first:
+
+```powershell
+$env:EXPO_TOKEN="your_expo_token_here"
+docker compose run --rm fix-my-day npm run build:android:apk
+```
+
+The cloud path is faster and more reliable than local Android builds on Docker Desktop. Use the Docker local Android build only when you specifically need to build without EAS cloud workers.
+
 ## What is included
 
 - TypeScript Expo app
@@ -39,6 +50,7 @@ Useful local checks:
 ```bash
 npm run typecheck
 npx expo config --type public
+npx expo-doctor
 ```
 
 ## Run with Docker
@@ -75,13 +87,20 @@ This app is configured for EAS Build with:
 
 ### Android APK for first testers
 
-Use this for direct install on Android devices:
+Use this EAS cloud build for direct install on Android devices:
 
 ```bash
 docker compose run --rm fix-my-day npm run build:android:apk
 ```
 
 EAS will return a download link when the build finishes. Share that APK only with trusted testers.
+
+If a tester already installed an older build with the same Android package, uninstall it before installing the new APK:
+
+```bash
+adb uninstall com.fixmyday.app
+adb install path/to/fix-my-day.apk
+```
 
 ### Local Android APK in Docker
 
@@ -98,6 +117,8 @@ docker create --name fix-my-day-artifacts -v myday_build-artifacts:/artifacts al
 docker cp fix-my-day-artifacts:/artifacts ./build-artifacts
 docker rm fix-my-day-artifacts
 ```
+
+Local Android builds are resource-heavy. Restart Docker Desktop first if Docker previously returned `500 Internal Server Error`, and make sure Docker has enough disk space and memory.
 
 Check a build:
 
@@ -136,6 +157,12 @@ Use this for Google Play production upload:
 docker compose run --rm fix-my-day npm run build:android
 ```
 
+Equivalent explicit AAB alias:
+
+```bash
+docker compose run --rm fix-my-day npm run build:android:aab
+```
+
 Local Docker AAB build:
 
 ```bash
@@ -171,4 +198,23 @@ iOS production builds require an Apple Developer account for signing. Android pr
 - Premium features are represented in `src/data/premiumFeatures.ts`.
 - Local progress can be cleared from Settings.
 - EAS requires Expo login or `EXPO_TOKEN`; this repo is otherwise ready for Android preview builds.
-- Local Android builds run in Docker with JDK 17, Android SDK command line tools, Android build tools, NDK/CMake, and a persistent Gradle cache. iOS local builds are not supported on Windows/Linux Docker because iOS requires macOS and Xcode.
+- Local Android builds run in Docker with JDK 17, Android SDK command line tools, Android build tools, NDK/CMake, and a persistent Gradle cache.
+- iOS local builds are not supported on Windows/Linux Docker because iOS requires macOS and Xcode.
+
+## Android Phone Testing
+
+Use [TESTING.md](./TESTING.md) for the manual QA checklist.
+Use [BUG_REPORT_TEMPLATE.md](./BUG_REPORT_TEMPLATE.md) when reporting tester issues.
+
+If the app installs but opens to a blank screen or closes immediately, capture Android logs:
+
+```bash
+adb logcat -c
+adb logcat AndroidRuntime:E ReactNativeJS:E ReactNative:E FixMyDay:D *:S
+```
+
+Or filter the full log on Windows PowerShell:
+
+```powershell
+adb logcat | findstr /i "FixMyDay ReactNativeJS ReactNative AndroidRuntime com.fixmyday.app"
+```

@@ -11,7 +11,7 @@ ENV REACT_NATIVE_PACKAGER_HOSTNAME=localhost
 ENV CHOKIDAR_USEPOLLING=true
 ENV BROWSER=none
 ENV EAS_LOCAL_BUILD_ARTIFACTS_DIR=/app/build-artifacts
-ENV PATH=${JAVA_HOME}/bin:${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/emulator:${ANDROID_HOME}/build-tools/36.0.0:${ANDROID_HOME}/build-tools/35.0.0
+ENV PATH=${JAVA_HOME}/bin:${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/build-tools/36.0.0
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -39,11 +39,8 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools \
   && yes | sdkmanager --licenses >/dev/null \
   && sdkmanager \
     "platform-tools" \
-    "emulator" \
     "platforms;android-36" \
-    "platforms;android-35" \
     "build-tools;36.0.0" \
-    "build-tools;35.0.0" \
     "cmake;3.22.1" \
     "ndk;28.2.13676358"
 

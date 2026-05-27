@@ -7,11 +7,16 @@
     "userInterfaceStyle": "light",
     "scheme": "fixmyday",
     "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#F6F2EA"
-    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#F6F2EA"
+        }
+      ]
+    ],
     "assetBundlePatterns": [
       "**/*"
     ],
