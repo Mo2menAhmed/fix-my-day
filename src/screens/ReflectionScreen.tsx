@@ -14,7 +14,7 @@ export function ReflectionScreen({ navigation, route }: ScreenProps<"Reflection"
   const { language, t, textDirection } = useLanguage();
   const plan = getPlanById(route.params.planId, language);
   const [reflection, setReflection] = useState("");
-  const [moodAfter, setMoodAfter] = useState(t.reflection.moods[0]);
+  const [moodAfter, setMoodAfter] = useState<string>(t.reflection.moods[0]);
   const [saved, setSaved] = useState(false);
 
   async function saveReflection() {

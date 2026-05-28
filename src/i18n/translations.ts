@@ -290,7 +290,7 @@ export const translations = {
       back: "العودة للإعدادات"
     }
   }
-} as const;
+};
 
 export function isArabicLanguage(language: LanguageCode) {
   return language === "ar";
