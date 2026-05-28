@@ -11,7 +11,9 @@ export const translations = {
       settings: "Settings",
       minutesShort: "min",
       favorite: "Favorite",
-      repeat: "Repeat"
+      repeat: "Repeat",
+      languagePrompt: "Choose your language / اختر اللغة",
+      selected: "Selected"
     },
     onboarding: {
       title: "When the day goes sideways, start here.",
@@ -156,7 +158,9 @@ export const translations = {
       settings: "الإعدادات",
       minutesShort: "د",
       favorite: "مفضل",
-      repeat: "كرر"
+      repeat: "كرر",
+      languagePrompt: "Choose your language / اختر اللغة",
+      selected: "مختارة"
     },
     onboarding: {
       title: "لما اليوم يخرج عن السيطرة، ابدأ من هنا.",

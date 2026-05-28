@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Alert, Pressable, StyleSheet, Switch, Text, View } from "react-native";
+import { LanguageSelector } from "../components/LanguageSelector";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
 import { useLanguage } from "../i18n/LanguageContext";
-import { languageLabels, type LanguageCode } from "../i18n/translations";
 import {
   clearProgress,
   defaultPreferences,
@@ -21,7 +21,7 @@ import type { UserPreferences } from "../types/recovery";
 const minuteOptions = [10, 15, 20, 25, 30, 35, 45];
 
 export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
-  const { language, setLanguage, t, textDirection } = useLanguage();
+  const { t, textDirection } = useLanguage();
   const [preferences, setPreferences] = useState<UserPreferences>(defaultPreferences);
   const [completedCount, setCompletedCount] = useState(0);
   const [favoriteCount, setFavoriteCount] = useState(0);
@@ -39,11 +39,6 @@ export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
   async function updatePreferences(next: UserPreferences) {
     setPreferences(next);
     await saveUserPreferences(next);
-  }
-
-  async function updateLanguage(nextLanguage: LanguageCode) {
-    await setLanguage(nextLanguage);
-    setPreferences((current) => ({ ...current, language: nextLanguage }));
   }
 
   function confirmClearProgress() {
@@ -68,22 +63,7 @@ export function SettingsScreen({ navigation }: ScreenProps<"Settings">) {
         body={t.settings.body}
       />
 
-      <View style={styles.panel}>
-        <Text style={[styles.panelTitle, textDirection]}>{t.settings.languageTitle}</Text>
-        <View style={styles.languageOptions}>
-          {(["en", "ar"] as LanguageCode[]).map((option) => (
-            <Pressable
-              key={option}
-              onPress={() => updateLanguage(option)}
-              style={[styles.languageButton, language === option && styles.languageButtonSelected]}
-            >
-              <Text style={[styles.languageText, language === option && styles.languageTextSelected]}>
-                {languageLabels[option]}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-      </View>
+      <LanguageSelector showPrompt />
 
       <View style={styles.panel}>
         <SettingSwitch
@@ -195,33 +175,6 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 14,
     lineHeight: 20
-  },
-  languageOptions: {
-    flexDirection: "row",
-    gap: spacing.sm
-  },
-  languageButton: {
-    alignItems: "center",
-    backgroundColor: colors.background,
-    borderColor: colors.line,
-    borderRadius: 8,
-    borderWidth: 1,
-    flex: 1,
-    minHeight: 46,
-    justifyContent: "center",
-    paddingHorizontal: spacing.md
-  },
-  languageButtonSelected: {
-    backgroundColor: colors.accentDark,
-    borderColor: colors.accentDark
-  },
-  languageText: {
-    color: colors.ink,
-    fontSize: 15,
-    fontWeight: "800"
-  },
-  languageTextSelected: {
-    color: colors.surface
   },
   switchRow: {
     alignItems: "center",

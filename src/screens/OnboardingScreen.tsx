@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import { LanguageSelector } from "../components/LanguageSelector";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { Screen } from "../components/Screen";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -19,6 +20,8 @@ export function OnboardingScreen({ navigation }: ScreenProps<"Onboarding">) {
   return (
     <Screen>
       <View style={styles.container}>
+        <LanguageSelector showPrompt />
+
         <View style={styles.hero}>
           <View style={styles.mark}>
             <Text style={styles.markText}>F</Text>

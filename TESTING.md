@@ -21,6 +21,9 @@ Use this checklist for a small first feedback test with five Android users.
 
 - Open Fix My Day.
 - Confirm the splash screen appears.
+- Confirm the first visible control includes "Choose your language / اختر اللغة".
+- Switch between English and العربية before completing onboarding.
+- Confirm the selected language is visually obvious.
 - Confirm onboarding explains:
   - what the app does
   - who it helps
@@ -30,6 +33,8 @@ Use this checklist for a small first feedback test with five Android users.
 
 ## Home Screen
 
+- Confirm the language selector is visible near the top of Home.
+- Switch languages from Home and confirm the Home copy and category cards update immediately.
 - Confirm the emotional copy feels clear and calming.
 - Confirm the tester understands the completed resets, streak, and default plan counters.
 - Confirm the tester understands recent resets if history exists.

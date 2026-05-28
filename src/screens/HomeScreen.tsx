@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { LanguageSelector } from "../components/LanguageSelector";
 import { PlanCard } from "../components/PlanCard";
 import { Screen } from "../components/Screen";
 import { SectionHeader } from "../components/SectionHeader";
@@ -43,6 +44,8 @@ export function HomeScreen({ navigation }: ScreenProps<"Home">) {
 
   return (
     <Screen>
+      <LanguageSelector compact showPrompt />
+
       <View style={styles.hero}>
         <Text style={[styles.heroEyebrow, textDirection]}>{t.home.heroEyebrow}</Text>
         <Text style={[styles.heroTitle, textDirection]}>{t.home.heroTitle}</Text>
