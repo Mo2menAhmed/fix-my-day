@@ -117,7 +117,7 @@ export const translations = {
     settings: {
       title: "Settings",
       body:
-        "Your plans stay local on this device. Adjust the default reset length, review progress, or preview future premium ideas.",
+        "Your plans stay local on this device. Adjust the default reset length, review progress, or see what may be added later.",
       languageTitle: "Language",
       gentleMode: "Gentle mode",
       soundCues: "Sound cues",
@@ -127,9 +127,9 @@ export const translations = {
       noSessions: "No saved sessions yet. Complete a reset and it will show up here.",
       completedPlans: "completed plans",
       favoritePlans: "favorite plans",
-      premiumTitle: "Premium placeholder",
-      premiumBody: "Payments are not connected. This screen is ready for future upgrade testing.",
-      previewPremium: "Preview premium",
+      premiumTitle: "Premium coming soon",
+      premiumBody: "Payments are not available in this version. Current reset plans are free to use.",
+      previewPremium: "View premium ideas",
       showOnboarding: "Show onboarding again",
       clearProgress: "Clear local progress",
       clearTitle: "Clear progress?",
@@ -138,18 +138,18 @@ export const translations = {
       clear: "Clear"
     },
     premium: {
-      eyebrow: "Preview only",
-      title: "Premium is not for sale yet.",
+      eyebrow: "Coming soon",
+      title: "Premium is not available yet.",
       body:
-        "This screen is here to test whether the upgrade idea makes sense before adding real payments.",
-      label: "Future Premium",
+        "This screen shows possible future upgrades. Payments and subscriptions are not active in this version.",
+      label: "Possible Premium",
       offerTitle: "More reset options for repeat users",
       offerBody:
-        "The free app stays useful with starter plans. Premium would add deeper packs, modes, and a quieter experience for people who use resets often.",
-      noteTitle: "No checkout in this build",
+        "The free app stays useful with starter plans. Premium may later add deeper packs, modes, and a quieter experience for people who use resets often.",
+      noteTitle: "No checkout available",
       noteBody:
-        "Buttons do not charge money, subscriptions are not connected, and testers can use every current reset for free.",
-      benefitsTitle: "Benefits to validate",
+        "This app does not charge money, subscriptions are not connected, and every current reset is free to use.",
+      benefitsTitle: "Possible benefits",
       back: "Back to settings"
     }
   },
@@ -257,7 +257,7 @@ export const translations = {
     },
     settings: {
       title: "الإعدادات",
-      body: "خططك تبقى محليا على هذا الجهاز. عدل مدة الاستعادة، راجع تقدمك، أو شاهد أفكار بريميوم القادمة.",
+      body: "خططك تبقى محليا على هذا الجهاز. عدل مدة الاستعادة، راجع تقدمك، أو شاهد ما قد يضاف لاحقا.",
       languageTitle: "اللغة",
       gentleMode: "الوضع اللطيف",
       soundCues: "تنبيهات صوتية",
@@ -267,9 +267,9 @@ export const translations = {
       noSessions: "لا توجد جلسات محفوظة بعد. أكمل استعادة وستظهر هنا.",
       completedPlans: "خطط مكتملة",
       favoritePlans: "خطط مفضلة",
-      premiumTitle: "صفحة بريميوم تجريبية",
-      premiumBody: "الدفع غير متصل. هذه الشاشة جاهزة لاختبار فكرة الترقية لاحقا.",
-      previewPremium: "معاينة بريميوم",
+      premiumTitle: "بريميوم قادم لاحقا",
+      premiumBody: "الدفع غير متاح في هذا الإصدار. خطط الاستعادة الحالية مجانية للاستخدام.",
+      previewPremium: "عرض أفكار بريميوم",
       showOnboarding: "عرض البداية مرة أخرى",
       clearProgress: "مسح التقدم المحلي",
       clearTitle: "مسح التقدم؟",
@@ -278,15 +278,15 @@ export const translations = {
       clear: "مسح"
     },
     premium: {
-      eyebrow: "معاينة فقط",
-      title: "بريميوم غير متاح للبيع بعد.",
-      body: "هذه الشاشة لاختبار فكرة الترقية قبل إضافة أي دفع حقيقي.",
-      label: "بريميوم لاحقا",
+      eyebrow: "قادم لاحقا",
+      title: "بريميوم غير متاح حاليا.",
+      body: "هذه الشاشة تعرض ترقيات محتملة لاحقا. الدفع والاشتراكات غير مفعلة في هذا الإصدار.",
+      label: "بريميوم محتمل",
       offerTitle: "خيارات استعادة أكثر للمستخدمين المتكررين",
       offerBody: "التطبيق المجاني يبقى مفيدا بالخطط الأساسية. بريميوم قد يضيف حزم أعمق، أوضاعا متخصصة، وتجربة أهدأ لمن يستخدم الاستعادات كثيرا.",
-      noteTitle: "لا توجد عملية دفع في هذا الإصدار",
-      noteBody: "الأزرار لا تخصم أموالا، والاشتراكات غير متصلة، وكل الاستعادات الحالية متاحة مجانا للتجربة.",
-      benefitsTitle: "مزايا نريد اختبارها",
+      noteTitle: "لا توجد عملية دفع",
+      noteBody: "هذا التطبيق لا يخصم أموالا، والاشتراكات غير مفعلة، وكل الاستعادات الحالية مجانية للاستخدام.",
+      benefitsTitle: "مزايا محتملة",
       back: "العودة للإعدادات"
     }
   }
