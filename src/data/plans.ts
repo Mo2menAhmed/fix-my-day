@@ -49,7 +49,7 @@ function localizePlan(plan: RecoveryPlan, language: LanguageCode): RecoveryPlan 
     return plan;
   }
 
-  const translation = plan.translations?.[language];
+  const translation = plan.translations?.[language] ?? (language === "arz" ? plan.translations?.ar : undefined);
   if (!translation) {
     return plan;
   }

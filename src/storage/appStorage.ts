@@ -80,7 +80,10 @@ export async function getUserPreferences() {
       typeof stored.hasCompletedOnboarding === "boolean"
         ? stored.hasCompletedOnboarding
         : defaultPreferences.hasCompletedOnboarding,
-    language: stored.language === "ar" || stored.language === "en" ? stored.language : defaultPreferences.language
+    language:
+      stored.language === "ar" || stored.language === "arz" || stored.language === "en"
+        ? stored.language
+        : defaultPreferences.language
   };
 }
 

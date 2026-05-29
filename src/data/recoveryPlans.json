@@ -1,466 +1,774 @@
 [
-  {
-    "id": "wasted-morning-25",
-    "categoryId": "wasted-morning",
-    "category": "Wasted the morning",
-    "categoryPrompt": "You lost hours and need one calm restart, not a punishment plan.",
-    "title": "Afternoon restart",
-    "shortEncouragement": "A late start is still a start. This reset turns the rest of the day into something usable.",
-    "quickWin": "Put water beside you, open one useful thing, and set your phone out of reach.",
-    "totalTime": 25,
-    "steps": [
-      {
-        "id": "wm-1",
-        "title": "Change the room signal",
-        "durationMinutes": 5,
-        "detail": "Open a curtain or light, refill water, clear one hand-sized surface, and move your phone away from your body."
-      },
-      {
-        "id": "wm-2",
-        "title": "Choose the rescue task",
-        "durationMinutes": 5,
-        "detail": "Pick one task that would make tonight feel less lost: one message, one page, one errand, or one small cleanup."
-      },
-      {
-        "id": "wm-3",
-        "title": "Work with low standards",
-        "durationMinutes": 15,
-        "detail": "Do the first ugly version. Stop polishing, stop catching up, and only move the task one step forward."
-      }
-    ],
-    "checklistItems": ["Water within reach", "Phone out of reach", "One rescue task chosen", "Timer started"],
-    "translations": {
-      "ar": {
-        "category": "ضيعت الصباح",
-        "categoryPrompt": "ضاعت ساعات وتحتاج بداية هادئة، لا خطة عقاب.",
-        "title": "بداية جديدة بعد الظهر",
-        "shortEncouragement": "البداية المتأخرة ما زالت بداية. هذه الاستعادة تجعل باقي اليوم قابلا للاستخدام.",
-        "quickWin": "ضع ماء بجانبك، افتح شيئا مفيدا واحدا، وأبعد الهاتف عن يدك.",
-        "steps": [
-          {
-            "id": "wm-1",
-            "title": "غير إشارة المكان",
-            "detail": "افتح ستارة أو ضوءا، املأ الماء، نظف مساحة صغيرة بحجم يدك، وأبعد الهاتف عن جسمك."
-          },
-          {
-            "id": "wm-2",
-            "title": "اختر مهمة الإنقاذ",
-            "detail": "اختر مهمة واحدة تجعل الليل أقل ضياعا: رسالة، صفحة، مشوار صغير، أو ترتيب بسيط."
-          },
-          {
-            "id": "wm-3",
-            "title": "اعمل بمعايير منخفضة",
-            "detail": "أنجز النسخة الأولى غير المثالية. توقف عن التعويض والتلميع، وحرك المهمة خطوة واحدة فقط."
-          }
-        ],
-        "checklistItems": ["الماء قريب", "الهاتف بعيد", "مهمة إنقاذ واحدة مختارة", "المؤقت بدأ"]
-      }
+    {
+        "id":  "wasted-morning-25",
+        "categoryId":  "wasted-morning",
+        "category":  "Wasted the morning",
+        "categoryPrompt":  "You lost hours and need one calm restart, not a punishment plan.",
+        "title":  "Afternoon restart",
+        "shortEncouragement":  "A late start is still a start. This reset turns the rest of the day into something usable.",
+        "quickWin":  "Put water beside you, open one useful thing, and set your phone out of reach.",
+        "totalTime":  25,
+        "steps":  [
+                      {
+                          "id":  "wm-1",
+                          "title":  "Change the room signal",
+                          "durationMinutes":  5,
+                          "detail":  "Open a curtain or light, refill water, clear one hand-sized surface, and move your phone away from your body."
+                      },
+                      {
+                          "id":  "wm-2",
+                          "title":  "Choose the rescue task",
+                          "durationMinutes":  5,
+                          "detail":  "Pick one task that would make tonight feel less lost: one message, one page, one errand, or one small cleanup."
+                      },
+                      {
+                          "id":  "wm-3",
+                          "title":  "Work with low standards",
+                          "durationMinutes":  15,
+                          "detail":  "Do the first ugly version. Stop polishing, stop catching up, and only move the task one step forward."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Water within reach",
+                               "Phone out of reach",
+                               "One rescue task chosen",
+                               "Timer started"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "البداية المتأخرة ما زالت بداية. هذه الخطة تجعل ما تبقى من اليوم قابلا للاستخدام.",
+                                        "categoryPrompt":  "ضاعت ساعات وتحتاج بداية هادئة، لا خطة عقاب.",
+                                        "checklistItems":  [
+                                                               "الماء قريب",
+                                                               "الهاتف بعيد",
+                                                               "مهمة إنقاذ واحدة مختارة",
+                                                               "المؤقت بدأ"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "افتح ستارة أو ضوءا، املأ الماء، نظف مساحة صغيرة بحجم يدك، وأبعد الهاتف عن جسمك.",
+                                                          "title":  "غير إشارة المكان",
+                                                          "id":  "wm-1"
+                                                      },
+                                                      {
+                                                          "detail":  "اختر مهمة واحدة تجعل الليلة أقل ضياعا: رسالة، صفحة، مشوار صغير، أو ترتيب بسيط.",
+                                                          "title":  "اختر مهمة الإنقاذ",
+                                                          "id":  "wm-2"
+                                                      },
+                                                      {
+                                                          "detail":  "أنجز النسخة الأولى غير المثالية. توقف عن التعويض والتلميع، وحرك المهمة خطوة واحدة فقط.",
+                                                          "title":  "اعمل بمعايير منخفضة",
+                                                          "id":  "wm-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "ضع ماء بجانبك، افتح شيئا مفيدا واحدا، وأبعد الهاتف عن يدك.",
+                                        "category":  "ضاع الصباح",
+                                        "title":  "استعادة بعد الظهر"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "حتى لو بدأت متأخر، لسه في جزء من اليوم ينفع يتلحق. هنرجع بخطوة صغيرة.",
+                                         "categoryPrompt":  "ساعات راحت ومحتاج بداية هادية، مش جلد ذات.",
+                                         "checklistItems":  [
+                                                                "المية جنبك",
+                                                                "الموبايل بعيد",
+                                                                "مهمة إنقاذ واحدة",
+                                                                "المؤقت اشتغل"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "افتح شباك أو نور، املى كوباية مية، فضي مساحة صغيرة قد إيدك، وابعد الموبايل عن جسمك.",
+                                                           "title":  "غير إحساس المكان",
+                                                           "id":  "wm-1"
+                                                       },
+                                                       {
+                                                           "detail":  "اختار حاجة واحدة تخلي آخر اليوم أهدى: رسالة، صفحة، مشوار صغير، أو ترتيب بسيط.",
+                                                           "title":  "اختار مهمة إنقاذ",
+                                                           "id":  "wm-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اعمل أول نسخة وخلاص. بلاش تعويض اليوم كله، حرّك المهمة خطوة واحدة بس.",
+                                                           "title":  "اشتغل بنسخة مش كاملة",
+                                                           "id":  "wm-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "حط مية جنبك، افتح حاجة واحدة مفيدة، وابعد الموبايل عن إيدك.",
+                                         "category":  "الصبح ضاع",
+                                         "title":  "إعادة تشغيل بعد الظهر"
+                                     }
+                         }
+    },
+    {
+        "id":  "overwhelmed-20",
+        "categoryId":  "overwhelmed",
+        "category":  "Feeling overwhelmed",
+        "categoryPrompt":  "Everything feels loud and you need the pile to become smaller.",
+        "title":  "Make the pile smaller",
+        "shortEncouragement":  "You do not need to solve the whole day. You only need to reduce the noise enough to breathe.",
+        "quickWin":  "Write the three loudest worries as short phrases. No fixing yet.",
+        "totalTime":  20,
+        "steps":  [
+                      {
+                          "id":  "ov-1",
+                          "title":  "Name the pressure",
+                          "durationMinutes":  4,
+                          "detail":  "Write every open loop in rough words: bills, exam, dishes, email, call. Keep each one under six words."
+                      },
+                      {
+                          "id":  "ov-2",
+                          "title":  "Sort the list",
+                          "durationMinutes":  6,
+                          "detail":  "Mark each item as now, later, or not mine. Only three things can be now."
+                      },
+                      {
+                          "id":  "ov-3",
+                          "title":  "Close one tiny loop",
+                          "durationMinutes":  10,
+                          "detail":  "Send one reply, put away one item, make one decision, or create one calendar reminder."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Open loops written",
+                               "Only three now items",
+                               "One tiny loop closed"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "لا تحتاج إلى حل اليوم كله. تحتاج فقط إلى تقليل الضجيج بما يكفي لتتنفس.",
+                                        "categoryPrompt":  "كل شيء يبدو عاليا وتحتاج أن تجعل الكومة أصغر.",
+                                        "checklistItems":  [
+                                                               "الأمور المفتوحة مكتوبة",
+                                                               "ثلاثة عناصر الآن فقط",
+                                                               "تم إغلاق حلقة صغيرة"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "اكتب كل الأمور المفتوحة بكلمات بسيطة: فواتير، امتحان، أطباق، بريد، اتصال. اجعل كل عنصر أقل من ست كلمات.",
+                                                          "title":  "سم الضغط",
+                                                          "id":  "ov-1"
+                                                      },
+                                                      {
+                                                          "detail":  "ضع علامة على كل عنصر: الآن، لاحقا، أو ليس مسؤوليتي. ثلاثة عناصر فقط يمكن أن تكون الآن.",
+                                                          "title":  "رتب القائمة",
+                                                          "id":  "ov-2"
+                                                      },
+                                                      {
+                                                          "detail":  "اختر أسهل عنصر من الآن وأغلقه أو حركه خطوة واضحة: رسالة قصيرة، موعد، أو خمس دقائق ترتيب.",
+                                                          "title":  "أغلق حلقة صغيرة",
+                                                          "id":  "ov-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "اكتب أكثر ثلاث مخاوف إزعاجا كعبارات قصيرة. لا تصلح شيئا الآن.",
+                                        "category":  "أشعر بالإرهاق",
+                                        "title":  "تصغير الكومة"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "مش لازم تحل اليوم كله. كفاية تقلل الدوشة لحد ما تعرف تاخد نفس.",
+                                         "categoryPrompt":  "الدنيا عالية في دماغك ومحتاج تصغر الكومة شوية.",
+                                         "checklistItems":  [
+                                                                "الحاجات المفتوحة اتكتبت",
+                                                                "دلوقتي فيه 3 بس",
+                                                                "حاجة صغيرة اتقفلت"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "اكتب كل الحاجات المفتوحة بكلمات بسيطة: فلوس، امتحان، مواعين، إيميل، مكالمة. خلي كل واحدة قصيرة.",
+                                                           "title":  "سمّي الضغط",
+                                                           "id":  "ov-1"
+                                                       },
+                                                       {
+                                                           "detail":  "جنب كل حاجة اكتب: دلوقتي، بعدين، أو مش بتاعتي. دلوقتي مسموح لها بثلاث حاجات بس.",
+                                                           "title":  "فرز سريع",
+                                                           "id":  "ov-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اختار أسهل حاجة من دلوقتي واقفلها أو حركها خطوة: رسالة، ميعاد، أو 5 دقايق ترتيب.",
+                                                           "title":  "اقفل حاجة صغيرة",
+                                                           "id":  "ov-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "اكتب أكتر 3 حاجات ضاغطاك في كلمات قصيرة. من غير حل دلوقتي.",
+                                         "category":  "حاسس إن كل حاجة كتير",
+                                         "title":  "صغّر الكومة"
+                                     }
+                         }
+    },
+    {
+        "id":  "study-start-30",
+        "categoryId":  "cannot-start-studying",
+        "category":  "Cannot start studying",
+        "categoryPrompt":  "You need to begin studying without waiting to feel motivated.",
+        "title":  "Study warm start",
+        "shortEncouragement":  "You are allowed to begin badly. The first useful page is enough to change the direction.",
+        "quickWin":  "Open the exact material and write one question you can answer in the next block.",
+        "totalTime":  30,
+        "steps":  [
+                      {
+                          "id":  "ss-1",
+                          "title":  "Prepare the runway",
+                          "durationMinutes":  5,
+                          "detail":  "Open the book, notes, or video at the exact place. Put only the needed tools in front of you."
+                      },
+                      {
+                          "id":  "ss-2",
+                          "title":  "Turn a heading into a question",
+                          "durationMinutes":  5,
+                          "detail":  "Scan headings or examples, then write one question like: What does this formula mean?"
+                      },
+                      {
+                          "id":  "ss-3",
+                          "title":  "Complete one study rep",
+                          "durationMinutes":  20,
+                          "detail":  "Answer the question, solve two problems, summarize one page, or make five flashcards."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Material open",
+                               "One question written",
+                               "Distractions removed",
+                               "Study block complete"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "مسموح أن تبدأ بشكل غير مثالي. أول صفحة مفيدة تكفي لتغيير الاتجاه.",
+                                        "categoryPrompt":  "تحتاج أن تبدأ المذاكرة من غير انتظار الحافز.",
+                                        "checklistItems":  [
+                                                               "المادة مفتوحة",
+                                                               "سؤال واحد مكتوب",
+                                                               "المشتتات بعيدة",
+                                                               "فترة المذاكرة اكتملت"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "افتح المادة الصحيحة، ضع الهاتف بعيدا، وجهز ورقة أو تطبيق ملاحظات. لا تختار بين أكثر من مصدر.",
+                                                          "title":  "جهز الطريق",
+                                                          "id":  "ss-1"
+                                                      },
+                                                      {
+                                                          "detail":  "اختر عنوانا واحدا واكتبه كسؤال. هدفك أن تعرف الإجابة فقط، وليس إنهاء الفصل كله.",
+                                                          "title":  "حول العنوان إلى سؤال",
+                                                          "id":  "ss-2"
+                                                      },
+                                                      {
+                                                          "detail":  "اقرأ أو شاهد جزءا صغيرا، ثم أغلق المصدر واكتب الإجابة من ذاكرتك بجمل بسيطة.",
+                                                          "title":  "أنجز تكرارا دراسيا واحدا",
+                                                          "id":  "ss-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "افتح المادة المطلوبة واكتب سؤالا واحدا يمكنك الإجابة عنه في الفترة القادمة.",
+                                        "category":  "لا أستطيع بدء المذاكرة",
+                                        "title":  "بداية مذاكرة دافئة"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "عادي تبدأ بداية مش مثالية. أول صفحة مفيدة ممكن تقلب اليوم.",
+                                         "categoryPrompt":  "محتاج تبدأ من غير ما تستنى الحماس ييجي.",
+                                         "checklistItems":  [
+                                                                "المادة مفتوحة",
+                                                                "سؤال واحد مكتوب",
+                                                                "المشتتات بعيدة",
+                                                                "بلوك المذاكرة خلص"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "افتح المصدر الصح، ابعد الموبايل، وجهز ورقة أو نوتس. ما تفتحش 5 مصادر.",
+                                                           "title":  "جهز السكة",
+                                                           "id":  "ss-1"
+                                                       },
+                                                       {
+                                                           "detail":  "اختار عنوان واحد واكتبه كسؤال. المطلوب تفهم الإجابة، مش تخلص الباب كله.",
+                                                           "title":  "حوّل العنوان لسؤال",
+                                                           "id":  "ss-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اقرأ أو اتفرج على جزء صغير، اقفل المصدر، واكتب الإجابة من دماغك بجمل بسيطة.",
+                                                           "title":  "اعمل تكرار واحد",
+                                                           "id":  "ss-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "افتح المادة بالظبط، واكتب سؤال واحد تقدر تجاوب عليه في البلوك الجاي.",
+                                         "category":  "مش قادر أبدأ مذاكرة",
+                                         "title":  "دخلة مذاكرة سهلة"
+                                     }
+                         }
+    },
+    {
+        "id":  "workday-rescue-35",
+        "categoryId":  "workday-rescue",
+        "category":  "Workday rescue",
+        "categoryPrompt":  "The workday slipped and you need one professional recovery block.",
+        "title":  "Professional rescue block",
+        "shortEncouragement":  "A messy workday can still end with one useful delivery and less pressure tomorrow.",
+        "quickWin":  "Find the one person or task that needs an update today.",
+        "totalTime":  35,
+        "steps":  [
+                      {
+                          "id":  "wr-1",
+                          "title":  "Triage visible commitments",
+                          "durationMinutes":  8,
+                          "detail":  "Check calendar, messages, and task list for deadlines, blockers, or anything affecting another person today."
+                      },
+                      {
+                          "id":  "wr-2",
+                          "title":  "Send one stabilizing update",
+                          "durationMinutes":  7,
+                          "detail":  "Write a short update: what is done, what is next, and when the next reply or delivery will happen."
+                      },
+                      {
+                          "id":  "wr-3",
+                          "title":  "Ship the smallest useful piece",
+                          "durationMinutes":  20,
+                          "detail":  "Finish a draft, review, ticket, decision, or handoff that makes tomorrow easier to enter."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Urgent items checked",
+                               "One update sent",
+                               "Small useful piece shipped"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "يمكن أن ينتهي يوم العمل الفوضوي بتسليم مفيد واحد وضغط أقل غدا.",
+                                        "categoryPrompt":  "انزلق يوم العمل وتحتاج فترة مهنية واحدة للاستعادة.",
+                                        "checklistItems":  [
+                                                               "العناصر العاجلة راجعت",
+                                                               "تحديث واحد أرسل",
+                                                               "جزء مفيد صغير تم تسليمه"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "افتح الرسائل أو قائمة المهام مرة واحدة. اكتب ما يحتاج ردا أو تسليما اليوم فقط.",
+                                                          "title":  "راجع الالتزامات الواضحة",
+                                                          "id":  "wr-1"
+                                                      },
+                                                      {
+                                                          "detail":  "أرسل رسالة قصيرة: ما تم، ما سيتأخر، وما الخطوة التالية. الوضوح أهم من الكمال.",
+                                                          "title":  "أرسل تحديثا يثبت الموقف",
+                                                          "id":  "wr-2"
+                                                      },
+                                                      {
+                                                          "detail":  "اختر جزءا يمكن مشاركته الآن: مسودة، أرقام، قرار، أو ملف ناقص لكنه مفيد.",
+                                                          "title":  "سلم أصغر جزء مفيد",
+                                                          "id":  "wr-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "حدد الشخص أو المهمة التي تحتاج تحديثا اليوم.",
+                                        "category":  "إنقاذ يوم العمل",
+                                        "title":  "فترة إنقاذ مهنية"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "حتى لو اليوم مكركب، ينفع يخلص بحاجة مفيدة تقلل ضغط بكرة.",
+                                         "categoryPrompt":  "يوم الشغل فلت ومحتاج بلوك واحد يرجعك بشكل مهني.",
+                                         "checklistItems":  [
+                                                                "العاجل اتراجع",
+                                                                "تحديث واحد اتبعت",
+                                                                "حاجة صغيرة مفيدة اتسلمت"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "افتح الرسائل أو التودو مرة واحدة بس. اكتب اللي محتاج رد أو تسليم النهارده فقط.",
+                                                           "title":  "راجع الالتزامات الظاهرة",
+                                                           "id":  "wr-1"
+                                                       },
+                                                       {
+                                                           "detail":  "ابعت رسالة قصيرة: إيه اتعمل، إيه هيتأخر، وإيه الخطوة الجاية. الوضوح أهم من الكمال.",
+                                                           "title":  "ابعت تحديث يطمن",
+                                                           "id":  "wr-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اختار جزء ينفع يتبعت دلوقتي: مسودة، أرقام، قرار، أو ملف ناقص بس مفيد.",
+                                                           "title":  "سلّم أصغر حاجة مفيدة",
+                                                           "id":  "wr-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "حدد شخص واحد أو مهمة واحدة محتاجة تحديث النهارده.",
+                                         "category":  "إنقاذ يوم الشغل",
+                                         "title":  "بلوك إنقاذ للشغل"
+                                     }
+                         }
+    },
+    {
+        "id":  "clean-space-20",
+        "categoryId":  "clean-space",
+        "category":  "Need to clean my desk/room",
+        "categoryPrompt":  "Your space is blocking your next move and needs a visible reset.",
+        "title":  "Visible-space reset",
+        "shortEncouragement":  "You are not cleaning everything. You are making one area easier to live in.",
+        "quickWin":  "Throw away five obvious pieces of trash or move five dishes out of the room.",
+        "totalTime":  20,
+        "steps":  [
+                      {
+                          "id":  "cs-1",
+                          "title":  "Remove obvious friction",
+                          "durationMinutes":  5,
+                          "detail":  "Collect trash, cups, plates, wrappers, and laundry from the main surface or walkway."
+                      },
+                      {
+                          "id":  "cs-2",
+                          "title":  "Make three landing zones",
+                          "durationMinutes":  7,
+                          "detail":  "Create keep here, put away, and deal later piles. Do not decide every item."
+                      },
+                      {
+                          "id":  "cs-3",
+                          "title":  "Clear one useful zone",
+                          "durationMinutes":  8,
+                          "detail":  "Finish the desk corner, bed area, floor path, or nightstand you most need for the next part of the day."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Trash removed",
+                               "Dishes or laundry moved",
+                               "Three piles made",
+                               "One useful zone clear"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "أنت لا تنظف كل شيء. أنت تجعل منطقة واحدة أسهل للعيش أو العمل.",
+                                        "categoryPrompt":  "المكان يعطل خطوتك التالية ويحتاج إعادة ضبط واضحة.",
+                                        "checklistItems":  [
+                                                               "القمامة أزيلت",
+                                                               "الأطباق أو الملابس نقلت",
+                                                               "ثلاث مجموعات صنعت",
+                                                               "منطقة مفيدة أصبحت واضحة"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "ابدأ بما لا يحتاج قرارا: قمامة، أطباق، ملابس على الأرض، أو أكواب فارغة.",
+                                                          "title":  "أزل الاحتكاك الواضح",
+                                                          "id":  "cs-1"
+                                                      },
+                                                      {
+                                                          "detail":  "اجمع الأشياء في ثلاث مجموعات: ترمى، تخرج من الغرفة، تبقى هنا. لا ترتب التفاصيل الآن.",
+                                                          "title":  "اصنع ثلاث مناطق",
+                                                          "id":  "cs-2"
+                                                      },
+                                                      {
+                                                          "detail":  "اختر سطحا واحدا تحتاجه اليوم: مكتب، سرير، أو كرسي. اجعله جاهزا للاستخدام فقط.",
+                                                          "title":  "نظف منطقة مفيدة واحدة",
+                                                          "id":  "cs-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "ارم خمس قطع واضحة من القمامة أو انقل خمس أطباق خارج الغرفة.",
+                                        "category":  "أحتاج تنظيف المكتب أو الغرفة",
+                                        "title":  "إعادة ضبط المساحة الظاهرة"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "إنت مش بتنضف كل حاجة. إنت بس بتخلي حتة واحدة أسهل تتقعد أو تشتغل فيها.",
+                                         "categoryPrompt":  "المكان موقفك ومحتاج شكل واضح يرجعك تتحرك.",
+                                         "checklistItems":  [
+                                                                "الزبالة اتشالت",
+                                                                "الأطباق أو الهدوم اتنقلت",
+                                                                "3 كوم اتعملوا",
+                                                                "منطقة مفيدة فضيت"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "ابدأ باللي مش محتاج قرار: زبالة، أطباق، هدوم على الأرض، أو كوبايات فاضية.",
+                                                           "title":  "شيل الحاجات الواضحة",
+                                                           "id":  "cs-1"
+                                                       },
+                                                       {
+                                                           "detail":  "قسم الحاجات: هترمى، هتخرج من الأوضة، هتفضل هنا. بلاش ترتيب تفصيلي دلوقتي.",
+                                                           "title":  "اعمل 3 كوم",
+                                                           "id":  "cs-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اختار سطح واحد محتاجه: مكتب، سرير، أو كرسي. خليه قابل للاستخدام وخلاص.",
+                                                           "title":  "فضي منطقة واحدة مفيدة",
+                                                           "id":  "cs-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "ارمي 5 حاجات واضحة أو طلع 5 أطباق/كوبايات بره الأوضة.",
+                                         "category":  "محتاج أنضف المكتب أو الأوضة",
+                                         "title":  "ترتيب سريع للمكان الظاهر"
+                                     }
+                         }
+    },
+    {
+        "id":  "bad-sleep-15",
+        "categoryId":  "bad-sleep-recovery",
+        "category":  "Bad sleep recovery",
+        "categoryPrompt":  "You slept badly and need a gentle day strategy.",
+        "title":  "Low-energy recovery",
+        "shortEncouragement":  "Today gets a kinder plan. Protect the essentials and lower the cost of starting.",
+        "quickWin":  "Drink water, get light on your face, and choose one must-do item.",
+        "totalTime":  15,
+        "steps":  [
+                      {
+                          "id":  "bs-1",
+                          "title":  "Stabilize your body",
+                          "durationMinutes":  5,
+                          "detail":  "Drink water, eat something simple if needed, stretch your neck, and get daylight or bright indoor light."
+                      },
+                      {
+                          "id":  "bs-2",
+                          "title":  "Lower the day",
+                          "durationMinutes":  5,
+                          "detail":  "Choose one must-do, one nice-to-do, and one thing you are officially allowed to skip."
+                      },
+                      {
+                          "id":  "bs-3",
+                          "title":  "Begin slowly",
+                          "durationMinutes":  5,
+                          "detail":  "Do five minutes of the must-do item at low speed. Stop when the timer ends if you need to."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Water",
+                               "Food checked",
+                               "One must-do chosen",
+                               "Five minutes started"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "اليوم يحتاج خطة أرحم. احم الضروريات وخفف تكلفة البدء.",
+                                        "categoryPrompt":  "نمت بشكل سيئ وتحتاج خطة يوم لطيفة.",
+                                        "checklistItems":  [
+                                                               "ماء",
+                                                               "الطعام تم التحقق منه",
+                                                               "مهمة ضرورية واحدة اختيرت",
+                                                               "خمس دقائق بدأت"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "اشرب ماء، افتح ضوءا أو اخرج لدقيقتين، وتحقق أنك أكلت أو ستأكل شيئا بسيطا.",
+                                                          "title":  "ثبت جسمك",
+                                                          "id":  "bs-1"
+                                                      },
+                                                      {
+                                                          "detail":  "اختر مهمة واحدة يجب إنجازها. أجل أو صغر أي شيء آخر غير ضروري.",
+                                                          "title":  "خفف اليوم",
+                                                          "id":  "bs-2"
+                                                      },
+                                                      {
+                                                          "detail":  "اعمل خمس دقائق فقط على المهمة الضرورية. السرعة ليست الهدف اليوم.",
+                                                          "title":  "ابدأ ببطء",
+                                                          "id":  "bs-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "اشرب ماء، احصل على ضوء على وجهك، واختر مهمة واحدة ضرورية.",
+                                        "category":  "تعاف من نوم سيئ",
+                                        "title":  "تعاف بطاقة منخفضة"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "النهارده محتاج خطة أخف. احمي الأساسيات وخلي البداية سهلة.",
+                                         "categoryPrompt":  "نمت وحش ومحتاج يوم أرحم شوية.",
+                                         "checklistItems":  [
+                                                                "شربت مية",
+                                                                "الأكل متظبط",
+                                                                "مهمة واحدة ضرورية",
+                                                                "بدأت 5 دقايق"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "اشرب مية، افتح نور أو اطلع دقيقتين، واتأكد إنك أكلت أو هتاكل حاجة بسيطة.",
+                                                           "title":  "ثبت جسمك الأول",
+                                                           "id":  "bs-1"
+                                                       },
+                                                       {
+                                                           "detail":  "اختار مهمة واحدة لازم تخلص. أي حاجة تانية يا تتأجل يا تتصغر.",
+                                                           "title":  "خفف اليوم",
+                                                           "id":  "bs-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اشتغل 5 دقايق بس على المهمة الضرورية. السرعة مش هدف النهارده.",
+                                                           "title":  "ابدأ ببطء",
+                                                           "id":  "bs-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "اشرب مية، خد نور على وشك، واختار حاجة واحدة لازم تتعمل.",
+                                         "category":  "نومي كان وحش",
+                                         "title":  "استعادة بطاقة قليلة"
+                                     }
+                         }
+    },
+    {
+        "id":  "before-bed-25",
+        "categoryId":  "before-bed-reset",
+        "category":  "Before bed reset",
+        "categoryPrompt":  "You want to close the day gently instead of carrying it into bed.",
+        "title":  "Soft landing tonight",
+        "shortEncouragement":  "You can end the day without judging it. Make tomorrow easier, then let the rest be done.",
+        "quickWin":  "Charge your phone away from bed and write tomorrow\u0027s first tiny action.",
+        "totalTime":  25,
+        "steps":  [
+                      {
+                          "id":  "bb-1",
+                          "title":  "Shift into night mode",
+                          "durationMinutes":  5,
+                          "detail":  "Dim the room, silence nonessential alerts, and put the phone on charge away from the pillow."
+                      },
+                      {
+                          "id":  "bb-2",
+                          "title":  "Do a tiny reset",
+                          "durationMinutes":  10,
+                          "detail":  "Put away five items, prep clothes, clear the bedside area, or set out morning essentials."
+                      },
+                      {
+                          "id":  "bb-3",
+                          "title":  "Release tomorrow",
+                          "durationMinutes":  10,
+                          "detail":  "Write tomorrow\u0027s first task, the place you will do it, and one thing you can leave unfinished tonight."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Phone charging away",
+                               "Five items reset",
+                               "Tomorrow\u0027s first action written"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "يمكنك إنهاء اليوم من غير محاكمة. اجعل الغد أسهل، ثم اترك الباقي.",
+                                        "categoryPrompt":  "تريد إغلاق اليوم بلطف بدلا من حمله إلى السرير.",
+                                        "checklistItems":  [
+                                                               "الهاتف يشحن بعيدا",
+                                                               "خمسة أشياء رتبت",
+                                                               "أول فعل للغد مكتوب"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "اخفض الإضاءة، اشحن الهاتف بعيدا عن السرير، وأغلق تبويبا أو تطبيقا واحدا يشد انتباهك.",
+                                                          "title":  "ادخل وضع الليل",
+                                                          "id":  "bb-1"
+                                                      },
+                                                      {
+                                                          "detail":  "أعد خمسة أشياء إلى أماكنها أو جهز الملابس/الحقيبة. لا تبدأ تنظيفا كبيرا.",
+                                                          "title":  "رتب شيئا صغيرا",
+                                                          "id":  "bb-2"
+                                                      },
+                                                      {
+                                                          "detail":  "اكتب أول فعل صغير للغد ومتى ستفعله. أي شيء آخر يذهب إلى قائمة لاحقا.",
+                                                          "title":  "اترك الغد",
+                                                          "id":  "bb-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "اشحن الهاتف بعيدا عن السرير واكتب أول خطوة صغيرة للغد.",
+                                        "category":  "إعادة ضبط قبل النوم",
+                                        "title":  "هبوط هادئ الليلة"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "ينفع تقفل اليوم من غير حكم عليه. سهّل بكرة وسيب الباقي.",
+                                         "categoryPrompt":  "عايز تقفل اليوم بهدوء بدل ما تاخده معاك للسرير.",
+                                         "checklistItems":  [
+                                                                "الموبايل بعيد وبيشحن",
+                                                                "5 حاجات اترتبت",
+                                                                "أول خطوة لبكرة مكتوبة"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "قلل النور، اشحن الموبايل بعيد، واقفل تاب أو أبلكيشن واحد بيسحبك.",
+                                                           "title":  "ادخل مود الليل",
+                                                           "id":  "bb-1"
+                                                       },
+                                                       {
+                                                           "detail":  "رجع 5 حاجات مكانها أو جهز لبس/شنطة. ما تبدأش تنضيف كبير.",
+                                                           "title":  "رتب حاجة صغيرة",
+                                                           "id":  "bb-2"
+                                                       },
+                                                       {
+                                                           "detail":  "اكتب أول فعل صغير لبكرة وإمتى هتعمله. أي حاجة تانية تتحط في ليستة بعدين.",
+                                                           "title":  "سيب بكرة على الورق",
+                                                           "id":  "bb-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "اشحن الموبايل بعيد عن السرير واكتب أول خطوة صغيرة لبكرة.",
+                                         "category":  "ريست قبل النوم",
+                                         "title":  "نزلة هادية قبل النوم"
+                                     }
+                         }
+    },
+    {
+        "id":  "tomorrow-planning-20",
+        "categoryId":  "tomorrow-planning",
+        "category":  "Tomorrow planning",
+        "categoryPrompt":  "You want tomorrow to feel clear before it begins.",
+        "title":  "Clear tomorrow map",
+        "shortEncouragement":  "A simple tomorrow is easier to enter. Give your future self fewer decisions.",
+        "quickWin":  "Write the first task for tomorrow and place the needed item where you will see it.",
+        "totalTime":  20,
+        "steps":  [
+                      {
+                          "id":  "tp-1",
+                          "title":  "Choose the three outcomes",
+                          "durationMinutes":  6,
+                          "detail":  "Pick up to three meaningful outcomes. Write them as finish, send, study, clean, or decide actions."
+                      },
+                      {
+                          "id":  "tp-2",
+                          "title":  "Block the first hour",
+                          "durationMinutes":  7,
+                          "detail":  "Decide what you will do first, where you will sit or stand, and which material you need open."
+                      },
+                      {
+                          "id":  "tp-3",
+                          "title":  "Remove morning friction",
+                          "durationMinutes":  7,
+                          "detail":  "Set out clothes, notes, bag, water, or the first document so tomorrow starts with less searching."
+                      }
+                  ],
+        "checklistItems":  [
+                               "Three outcomes chosen",
+                               "First hour planned",
+                               "Materials ready"
+                           ],
+        "translations":  {
+                             "ar":  {
+                                        "shortEncouragement":  "الغد البسيط أسهل في الدخول إليه. امنح نفسك قرارات أقل.",
+                                        "categoryPrompt":  "تريد أن يبدو الغد واضحا قبل أن يبدأ.",
+                                        "checklistItems":  [
+                                                               "ثلاث نتائج اختيرت",
+                                                               "أول ساعة خططت",
+                                                               "المواد جاهزة"
+                                                           ],
+                                        "steps":  [
+                                                      {
+                                                          "detail":  "اكتب ثلاث نتائج فقط تجعل الغد ناجحا. اجعلها صغيرة ومحددة.",
+                                                          "title":  "اختر ثلاث نتائج",
+                                                          "id":  "tp-1"
+                                                      },
+                                                      {
+                                                          "detail":  "اكتب ما ستفعله في أول ساعة بعد الاستيقاظ أو بدء العمل، بما في ذلك أول خمس دقائق.",
+                                                          "title":  "حدد أول ساعة",
+                                                          "id":  "tp-2"
+                                                      },
+                                                      {
+                                                          "detail":  "جهز المادة أو الملابس أو الملف أو الرابط الذي ستحتاجه أولا. اجعله مرئيا.",
+                                                          "title":  "أزل احتكاك الصباح",
+                                                          "id":  "tp-3"
+                                                      }
+                                                  ],
+                                        "quickWin":  "اكتب أول مهمة للغد وضع الشيء المطلوب في مكان ستراه.",
+                                        "category":  "تخطيط الغد",
+                                        "title":  "خريطة واضحة للغد"
+                                    },
+                             "arz":  {
+                                         "shortEncouragement":  "بكرة لما يبقى بسيط، دخوله بيبقى أسهل. قلل القرارات على نفسك.",
+                                         "categoryPrompt":  "عايز بكرة يبقى أوضح قبل ما يبدأ.",
+                                         "checklistItems":  [
+                                                                "3 نتايج اتختاروا",
+                                                                "أول ساعة مرسومة",
+                                                                "الحاجات جاهزة"
+                                                            ],
+                                         "steps":  [
+                                                       {
+                                                           "detail":  "اكتب 3 نتايج بس تخلي بكرة ناجح. خليهم صغيرين وواضحين.",
+                                                           "title":  "اختار 3 نتايج",
+                                                           "id":  "tp-1"
+                                                       },
+                                                       {
+                                                           "detail":  "اكتب هتعمل إيه في أول ساعة بعد ما تصحى أو تبدأ شغل، حتى أول 5 دقايق.",
+                                                           "title":  "ارسم أول ساعة",
+                                                           "id":  "tp-2"
+                                                       },
+                                                       {
+                                                           "detail":  "جهز المادة، اللبس، الملف، أو اللينك اللي هتحتاجه الأول. خليه قدام عينك.",
+                                                           "title":  "شيل احتكاك الصبح",
+                                                           "id":  "tp-3"
+                                                       }
+                                                   ],
+                                         "quickWin":  "اكتب أول مهمة لبكرة وحط الحاجة اللي هتحتاجها في مكان واضح.",
+                                         "category":  "تخطيط بكرة",
+                                         "title":  "خريطة بسيطة لبكرة"
+                                     }
+                         }
     }
-  },
-  {
-    "id": "overwhelmed-20",
-    "categoryId": "overwhelmed",
-    "category": "Feeling overwhelmed",
-    "categoryPrompt": "Everything feels loud and you need the pile to become smaller.",
-    "title": "Make the pile smaller",
-    "shortEncouragement": "You do not need to solve the whole day. You only need to reduce the noise enough to breathe.",
-    "quickWin": "Write the three loudest worries as short phrases. No fixing yet.",
-    "totalTime": 20,
-    "steps": [
-      {
-        "id": "ov-1",
-        "title": "Name the pressure",
-        "durationMinutes": 4,
-        "detail": "Write every open loop in rough words: bills, exam, dishes, email, call. Keep each one under six words."
-      },
-      {
-        "id": "ov-2",
-        "title": "Sort the list",
-        "durationMinutes": 6,
-        "detail": "Mark each item as now, later, or not mine. Only three things can be now."
-      },
-      {
-        "id": "ov-3",
-        "title": "Close one tiny loop",
-        "durationMinutes": 10,
-        "detail": "Send one reply, put away one item, make one decision, or create one calendar reminder."
-      }
-    ],
-    "checklistItems": ["Open loops written", "Only three now items", "One tiny loop closed"],
-    "translations": {
-      "ar": {
-        "category": "أشعر بضغط زائد",
-        "categoryPrompt": "كل شيء صاخب وتحتاج أن تجعل الكومة أصغر.",
-        "title": "صغر الكومة",
-        "shortEncouragement": "لا تحتاج حل اليوم كله. تحتاج فقط تقليل الضوضاء بما يكفي لتتنفس.",
-        "quickWin": "اكتب أعلى ثلاث ضغوط في كلمات قصيرة. بدون إصلاح الآن.",
-        "steps": [
-          {
-            "id": "ov-1",
-            "title": "سم الضغط",
-            "detail": "اكتب كل حلقة مفتوحة بكلمات سريعة: فاتورة، امتحان، أطباق، بريد، مكالمة. اجعل كل واحدة أقل من ست كلمات."
-          },
-          {
-            "id": "ov-2",
-            "title": "رتب القائمة",
-            "detail": "ضع علامة على كل عنصر: الآن، لاحقا، أو ليس علي. ثلاثة أشياء فقط يمكن أن تكون الآن."
-          },
-          {
-            "id": "ov-3",
-            "title": "أغلق حلقة صغيرة",
-            "detail": "أرسل ردا واحدا، أعد شيئا لمكانه، اتخذ قرارا واحدا، أو أنشئ تذكيرا في التقويم."
-          }
-        ],
-        "checklistItems": ["الحلقات المفتوحة مكتوبة", "ثلاثة عناصر الآن فقط", "حلقة صغيرة أغلقت"]
-      }
-    }
-  },
-  {
-    "id": "study-start-30",
-    "categoryId": "cannot-start-studying",
-    "category": "Cannot start studying",
-    "categoryPrompt": "You need to begin studying without waiting to feel motivated.",
-    "title": "Study warm start",
-    "shortEncouragement": "You are allowed to begin badly. The first useful page is enough to change the direction.",
-    "quickWin": "Open the exact material and write one question you can answer in the next block.",
-    "totalTime": 30,
-    "steps": [
-      {
-        "id": "ss-1",
-        "title": "Prepare the runway",
-        "durationMinutes": 5,
-        "detail": "Open the book, notes, or video at the exact place. Put only the needed tools in front of you."
-      },
-      {
-        "id": "ss-2",
-        "title": "Turn a heading into a question",
-        "durationMinutes": 5,
-        "detail": "Scan headings or examples, then write one question like: What does this formula mean?"
-      },
-      {
-        "id": "ss-3",
-        "title": "Complete one study rep",
-        "durationMinutes": 20,
-        "detail": "Answer the question, solve two problems, summarize one page, or make five flashcards."
-      }
-    ],
-    "checklistItems": ["Material open", "One question written", "Distractions removed", "Study block complete"],
-    "translations": {
-      "ar": {
-        "category": "لا أستطيع بدء المذاكرة",
-        "categoryPrompt": "تحتاج أن تبدأ المذاكرة بدون انتظار الحماس.",
-        "title": "بداية مذاكرة دافئة",
-        "shortEncouragement": "مسموح أن تبدأ بشكل غير مثالي. أول صفحة مفيدة تكفي لتغيير الاتجاه.",
-        "quickWin": "افتح المادة المطلوبة واكتب سؤالا واحدا يمكنك الإجابة عنه في هذه الفترة.",
-        "steps": [
-          {
-            "id": "ss-1",
-            "title": "جهز مسار البداية",
-            "detail": "افتح الكتاب أو الملاحظات أو الفيديو في المكان المحدد. ضع أمامك الأدوات المطلوبة فقط."
-          },
-          {
-            "id": "ss-2",
-            "title": "حول عنوانا إلى سؤال",
-            "detail": "تصفح العناوين أو الأمثلة، ثم اكتب سؤالا مثل: ماذا تعني هذه المعادلة؟"
-          },
-          {
-            "id": "ss-3",
-            "title": "أنجز تكرارا دراسيا واحدا",
-            "detail": "أجب عن السؤال، حل مسألتين، لخص صفحة واحدة، أو اصنع خمس بطاقات مراجعة."
-          }
-        ],
-        "checklistItems": ["المادة مفتوحة", "سؤال واحد مكتوب", "المشتتات أزيلت", "فترة المذاكرة اكتملت"]
-      }
-    }
-  },
-  {
-    "id": "workday-rescue-35",
-    "categoryId": "workday-rescue",
-    "category": "Workday rescue",
-    "categoryPrompt": "The workday slipped and you need one professional recovery block.",
-    "title": "Professional rescue block",
-    "shortEncouragement": "A messy workday can still end with one useful delivery and less pressure tomorrow.",
-    "quickWin": "Find the one person or task that needs an update today.",
-    "totalTime": 35,
-    "steps": [
-      {
-        "id": "wr-1",
-        "title": "Triage visible commitments",
-        "durationMinutes": 8,
-        "detail": "Check calendar, messages, and task list for deadlines, blockers, or anything affecting another person today."
-      },
-      {
-        "id": "wr-2",
-        "title": "Send one stabilizing update",
-        "durationMinutes": 7,
-        "detail": "Write a short update: what is done, what is next, and when the next reply or delivery will happen."
-      },
-      {
-        "id": "wr-3",
-        "title": "Ship the smallest useful piece",
-        "durationMinutes": 20,
-        "detail": "Finish a draft, review, ticket, decision, or handoff that makes tomorrow easier to enter."
-      }
-    ],
-    "checklistItems": ["Urgent items checked", "One update sent", "Small useful piece shipped"],
-    "translations": {
-      "ar": {
-        "category": "إنقاذ يوم العمل",
-        "categoryPrompt": "يوم العمل انزلق وتحتاج فترة إنقاذ مهنية واحدة.",
-        "title": "فترة إنقاذ مهنية",
-        "shortEncouragement": "يوم العمل الفوضوي يمكن أن ينتهي بتسليم مفيد وضغط أقل غدا.",
-        "quickWin": "حدد الشخص أو المهمة التي تحتاج تحديثا اليوم.",
-        "steps": [
-          {
-            "id": "wr-1",
-            "title": "راجع الالتزامات الظاهرة",
-            "detail": "افحص التقويم والرسائل وقائمة المهام للعثور على المواعيد، العوائق، أو ما يؤثر على شخص آخر اليوم."
-          },
-          {
-            "id": "wr-2",
-            "title": "أرسل تحديثا مطمئنا",
-            "detail": "اكتب تحديثا قصيرا: ما الذي تم، ما التالي، ومتى سيصل الرد أو التسليم القادم."
-          },
-          {
-            "id": "wr-3",
-            "title": "سلم أصغر جزء مفيد",
-            "detail": "أنه مسودة، مراجعة، تذكرة، قرارا، أو تسليما يجعل دخول الغد أسهل."
-          }
-        ],
-        "checklistItems": ["العناصر العاجلة فحصت", "تحديث واحد أرسل", "جزء مفيد صغير تم تسليمه"]
-      }
-    }
-  },
-  {
-    "id": "clean-space-20",
-    "categoryId": "clean-space",
-    "category": "Need to clean my desk/room",
-    "categoryPrompt": "Your space is blocking your next move and needs a visible reset.",
-    "title": "Visible-space reset",
-    "shortEncouragement": "You are not cleaning everything. You are making one area easier to live in.",
-    "quickWin": "Throw away five obvious pieces of trash or move five dishes out of the room.",
-    "totalTime": 20,
-    "steps": [
-      {
-        "id": "cs-1",
-        "title": "Remove obvious friction",
-        "durationMinutes": 5,
-        "detail": "Collect trash, cups, plates, wrappers, and laundry from the main surface or walkway."
-      },
-      {
-        "id": "cs-2",
-        "title": "Make three landing zones",
-        "durationMinutes": 7,
-        "detail": "Create keep here, put away, and deal later piles. Do not decide every item."
-      },
-      {
-        "id": "cs-3",
-        "title": "Clear one useful zone",
-        "durationMinutes": 8,
-        "detail": "Finish the desk corner, bed area, floor path, or nightstand you most need for the next part of the day."
-      }
-    ],
-    "checklistItems": ["Trash removed", "Dishes or laundry moved", "Three piles made", "One useful zone clear"],
-    "translations": {
-      "ar": {
-        "category": "أحتاج ترتيب المكتب أو الغرفة",
-        "categoryPrompt": "المكان يعطل خطوتك التالية ويحتاج ترتيبا واضحا.",
-        "title": "استعادة مساحة ظاهرة",
-        "shortEncouragement": "أنت لا تنظف كل شيء. أنت تجعل منطقة واحدة أسهل للعيش أو العمل.",
-        "quickWin": "ارم خمس قطع قمامة واضحة أو انقل خمسة أطباق خارج الغرفة.",
-        "steps": [
-          {
-            "id": "cs-1",
-            "title": "أزل الاحتكاك الواضح",
-            "detail": "اجمع القمامة، الأكواب، الأطباق، الأغلفة، والغسيل من السطح الرئيسي أو الممر."
-          },
-          {
-            "id": "cs-2",
-            "title": "اصنع ثلاث مناطق",
-            "detail": "اجعل أكواما: يبقى هنا، يعود لمكانه، ولاحقا. لا تقرر مصير كل شيء."
-          },
-          {
-            "id": "cs-3",
-            "title": "نظف منطقة مفيدة",
-            "detail": "أنه زاوية المكتب، منطقة السرير، ممر الأرض، أو الكومود الذي تحتاجه للجزء القادم من اليوم."
-          }
-        ],
-        "checklistItems": ["القمامة أزيلت", "الأطباق أو الغسيل نقلت", "ثلاث أكوام صنعت", "منطقة مفيدة أصبحت واضحة"]
-      }
-    }
-  },
-  {
-    "id": "bad-sleep-15",
-    "categoryId": "bad-sleep-recovery",
-    "category": "Bad sleep recovery",
-    "categoryPrompt": "You slept badly and need a gentle day strategy.",
-    "title": "Low-energy recovery",
-    "shortEncouragement": "Today gets a kinder plan. Protect the essentials and lower the cost of starting.",
-    "quickWin": "Drink water, get light on your face, and choose one must-do item.",
-    "totalTime": 15,
-    "steps": [
-      {
-        "id": "bs-1",
-        "title": "Stabilize your body",
-        "durationMinutes": 5,
-        "detail": "Drink water, eat something simple if needed, stretch your neck, and get daylight or bright indoor light."
-      },
-      {
-        "id": "bs-2",
-        "title": "Lower the day",
-        "durationMinutes": 5,
-        "detail": "Choose one must-do, one nice-to-do, and one thing you are officially allowed to skip."
-      },
-      {
-        "id": "bs-3",
-        "title": "Begin slowly",
-        "durationMinutes": 5,
-        "detail": "Do five minutes of the must-do item at low speed. Stop when the timer ends if you need to."
-      }
-    ],
-    "checklistItems": ["Water", "Food checked", "One must-do chosen", "Five minutes started"],
-    "translations": {
-      "ar": {
-        "category": "تعاف من نوم سيئ",
-        "categoryPrompt": "نمت بشكل سيئ وتحتاج استراتيجية لطيفة لليوم.",
-        "title": "تعاف بطاقة منخفضة",
-        "shortEncouragement": "اليوم يحتاج خطة أرحم. احم الضروريات وخفض تكلفة البداية.",
-        "quickWin": "اشرب ماء، تعرض للضوء، واختر شيئا واحدا لا بد منه.",
-        "steps": [
-          {
-            "id": "bs-1",
-            "title": "ثبت جسمك",
-            "detail": "اشرب ماء، كل شيئا بسيطا إذا احتجت، مدد رقبتك، وخذ ضوء نهار أو ضوءا داخليا قويا."
-          },
-          {
-            "id": "bs-2",
-            "title": "خفض سقف اليوم",
-            "detail": "اختر شيئا لا بد منه، وشيئا لطيفا إن حدث، وشيئا مسموحا لك بتخطيه رسميا."
-          },
-          {
-            "id": "bs-3",
-            "title": "ابدأ ببطء",
-            "detail": "افعل خمس دقائق من الشيء الضروري بسرعة منخفضة. توقف عند انتهاء المؤقت إذا احتجت."
-          }
-        ],
-        "checklistItems": ["ماء", "الطعام تم فحصه", "ضروري واحد مختار", "خمس دقائق بدأت"]
-      }
-    }
-  },
-  {
-    "id": "before-bed-25",
-    "categoryId": "before-bed-reset",
-    "category": "Before bed reset",
-    "categoryPrompt": "You want to close the day gently instead of carrying it into bed.",
-    "title": "Soft landing tonight",
-    "shortEncouragement": "You can end the day without judging it. Make tomorrow easier, then let the rest be done.",
-    "quickWin": "Charge your phone away from bed and write tomorrow's first tiny action.",
-    "totalTime": 25,
-    "steps": [
-      {
-        "id": "bb-1",
-        "title": "Shift into night mode",
-        "durationMinutes": 5,
-        "detail": "Dim the room, silence nonessential alerts, and put the phone on charge away from the pillow."
-      },
-      {
-        "id": "bb-2",
-        "title": "Do a tiny reset",
-        "durationMinutes": 10,
-        "detail": "Put away five items, prep clothes, clear the bedside area, or set out morning essentials."
-      },
-      {
-        "id": "bb-3",
-        "title": "Release tomorrow",
-        "durationMinutes": 10,
-        "detail": "Write tomorrow's first task, the place you will do it, and one thing you can leave unfinished tonight."
-      }
-    ],
-    "checklistItems": ["Phone charging away", "Five items reset", "Tomorrow's first action written"],
-    "translations": {
-      "ar": {
-        "category": "استعادة قبل النوم",
-        "categoryPrompt": "تريد إغلاق اليوم بلطف بدلا من حمله إلى السرير.",
-        "title": "هبوط هادئ الليلة",
-        "shortEncouragement": "يمكنك إنهاء اليوم بدون محاكمة. اجعل الغد أسهل، واترك الباقي ينتهي.",
-        "quickWin": "اشحن الهاتف بعيدا عن السرير واكتب أول خطوة صغيرة للغد.",
-        "steps": [
-          {
-            "id": "bb-1",
-            "title": "انتقل إلى وضع الليل",
-            "detail": "اخفض إضاءة الغرفة، اكتم التنبيهات غير الضرورية، وضع الهاتف على الشحن بعيدا عن الوسادة."
-          },
-          {
-            "id": "bb-2",
-            "title": "افعل ترتيبا صغيرا",
-            "detail": "أعد خمسة أشياء لمكانها، جهز الملابس، نظف جانب السرير، أو جهز أساسيات الصباح."
-          },
-          {
-            "id": "bb-3",
-            "title": "اترك الغد على الورق",
-            "detail": "اكتب أول مهمة للغد، المكان الذي ستفعلها فيه، وشيئا واحدا يمكنك تركه غير مكتمل الليلة."
-          }
-        ],
-        "checklistItems": ["الهاتف يشحن بعيدا", "خمسة أشياء رتبت", "أول خطوة للغد مكتوبة"]
-      }
-    }
-  },
-  {
-    "id": "tomorrow-planning-20",
-    "categoryId": "tomorrow-planning",
-    "category": "Tomorrow planning",
-    "categoryPrompt": "You want tomorrow to feel clear before it begins.",
-    "title": "Clear tomorrow map",
-    "shortEncouragement": "A simple tomorrow is easier to enter. Give your future self fewer decisions.",
-    "quickWin": "Write the first task for tomorrow and place the needed item where you will see it.",
-    "totalTime": 20,
-    "steps": [
-      {
-        "id": "tp-1",
-        "title": "Choose the three outcomes",
-        "durationMinutes": 6,
-        "detail": "Pick up to three meaningful outcomes. Write them as finish, send, study, clean, or decide actions."
-      },
-      {
-        "id": "tp-2",
-        "title": "Block the first hour",
-        "durationMinutes": 7,
-        "detail": "Decide what you will do first, where you will sit or stand, and which material you need open."
-      },
-      {
-        "id": "tp-3",
-        "title": "Remove morning friction",
-        "durationMinutes": 7,
-        "detail": "Set out clothes, notes, bag, water, or the first document so tomorrow starts with less searching."
-      }
-    ],
-    "checklistItems": ["Three outcomes chosen", "First hour planned", "Materials ready"],
-    "translations": {
-      "ar": {
-        "category": "تخطيط الغد",
-        "categoryPrompt": "تريد أن يكون الغد واضحا قبل أن يبدأ.",
-        "title": "خريطة واضحة للغد",
-        "shortEncouragement": "الغد البسيط أسهل في الدخول. امنح نفسك قرارات أقل.",
-        "quickWin": "اكتب أول مهمة للغد وضع الشيء المطلوب حيث تراه.",
-        "steps": [
-          {
-            "id": "tp-1",
-            "title": "اختر ثلاث نتائج",
-            "detail": "اختر حتى ثلاث نتائج مهمة. اكتبها كأفعال: أنه، أرسل، ذاكر، نظف، أو قرر."
-          },
-          {
-            "id": "tp-2",
-            "title": "حدد أول ساعة",
-            "detail": "قرر ماذا ستفعل أولا، أين ستجلس أو تقف، وأي مادة يجب أن تكون مفتوحة."
-          },
-          {
-            "id": "tp-3",
-            "title": "أزل احتكاك الصباح",
-            "detail": "جهز الملابس، الملاحظات، الحقيبة، الماء، أو أول ملف حتى يبدأ الغد ببحث أقل."
-          }
-        ],
-        "checklistItems": ["ثلاث نتائج مختارة", "أول ساعة مخططة", "المواد جاهزة"]
-      }
-    }
-  }
 ]

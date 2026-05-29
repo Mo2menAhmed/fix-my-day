@@ -33,7 +33,8 @@ export function PremiumScreen({ navigation }: ScreenProps<"Premium">) {
       <View style={styles.features}>
         <Text style={[styles.featuresTitle, textDirection]}>{t.premium.benefitsTitle}</Text>
         {premiumFeatures.map((feature) => {
-          const localizedFeature = language === "en" ? feature : feature.translations?.[language] ?? feature;
+          const localizedFeature =
+            language === "en" ? feature : feature.translations?.[language] ?? feature.translations?.ar ?? feature;
           return (
           <View key={feature.id} style={[styles.feature, rowDirection]}>
             <View style={styles.dot} />

@@ -1,8 +1,9 @@
-export type LanguageCode = "en" | "ar";
+export type LanguageCode = "en" | "ar" | "arz";
 
 export const languageLabels: Record<LanguageCode, string> = {
   en: "English",
-  ar: "العربية"
+  ar: "العربية",
+  arz: "مصري"
 };
 
 export const translations = {
@@ -289,9 +290,146 @@ export const translations = {
       benefitsTitle: "مزايا محتملة",
       back: "العودة للإعدادات"
     }
+  },
+  arz: {
+    common: {
+      settings: "الإعدادات",
+      minutesShort: "د",
+      favorite: "مفضلة",
+      repeat: "كرر",
+      languagePrompt: "Choose your language / اختر اللغة",
+      selected: "مختارة"
+    },
+    onboarding: {
+      title: "لما اليوم يتلخبط، ابدأ من هنا.",
+      body: "Fix My Day يساعدك تهدى، تختار خطوة صغيرة، وترجع باقي يومك من غير ضغط.",
+      firstActionLabel: "نبدأ بإيه؟",
+      firstAction: "اختار أقرب حاجة للي حاصل معاك دلوقتي، وإحنا نجهز لك خطة بسيطة.",
+      button: "اختار اللي حاصل",
+      points: [
+        {
+          title: "اختار سبب اللخبطة",
+          body: "صباح ضاع، ضغط كتير، مذاكرة واقفة، أوضة مكركبة، نوم وحش، أو تجهيز للنوم."
+        },
+        {
+          title: "خذ خطة قصيرة وواضحة",
+          body: "مكسب سريع، خطوات بوقت محدد، وقايمة بسيطة تقدر تخلصها النهارده."
+        },
+        {
+          title: "كرر اللي نفع",
+          body: "أي استعادة تخلصها بتفضل محفوظة على موبايلك عشان ترجع لها بسهولة."
+        }
+      ]
+    },
+    home: {
+      heroEyebrow: "لليوم اللي خرج عن مساره",
+      heroTitle: "اختار المشكلة، وخذ أول خطوة.",
+      heroBody: "من غير لوم ومن غير خطة كبيرة. اختار الأقرب لحالتك وابدأ بحاجة صغيرة.",
+      completedResets: "استعادات خلصت",
+      dayStreak: "أيام ورا بعض",
+      defaultPlan: "المدة الافتراضية",
+      recentTitle: "آخر الاستعادات",
+      recentMeta: "كرر الخطة اللي ساعدتك",
+      emptyTitle: "أول استعادة هتظهر هنا",
+      emptyText: "بعد ما تخلص أول خطة، هتلاقيها هنا وتكررها وقت ما تحتاج.",
+      sectionEyebrow: "اختار الأقرب",
+      sectionTitle: "إيه اللي محتاج إنقاذ دلوقتي؟",
+      sectionBody: "خطط قصيرة لأيام حقيقية: بداية متأخرة، طاقة قليلة، مهام متراكمة، أو مكان مكركب."
+    },
+    timeSelection: {
+      headerTitle: "اختار وقت تقدر تلتزم به",
+      headerBody: "الخطة هتتظبط على الوقت اللي عندك. اختار مدة واقعية، مش مدة مثالية.",
+      quickWin: "مكسب سريع",
+      planDetails: "خطوات، عناصر في القايمة، معمولة لمدة",
+      compressed: "نسخة مختصرة",
+      recommended: "المدة المقترحة",
+      roomy: "وقت أهدى",
+      button: "جهز خطتي"
+    },
+    recovery: {
+      minutesReset: "دقيقة",
+      notFoundTitle: "الخطة مش موجودة",
+      notFoundBody: "ارجع واختار نوع تاني.",
+      builtFor: "مناسبة للحظة دي",
+      chose: "اخترت",
+      bodyPrefix: "دي خطة مدتها",
+      bodySuffix: "دقيقة. ابدأ بالأسهل وامشي خطوة خطوة. مش مطلوب إن اليوم يبقى مثالي.",
+      checklistReady: "من عناصر القايمة جاهزة",
+      quickWin: "مكسب سريع",
+      stepsTitle: "امشي على الخطوات دي",
+      checklistTitle: "قبل ما تبدأ",
+      startTimer: "ابدأ مؤقت التركيز",
+      removeFavorite: "شيل من المفضلة",
+      saveFavorite: "احفظ في المفضلة"
+    },
+    timer: {
+      focus: "تركيز",
+      recoveryFocus: "وقت الاستعادة",
+      body: "دي فترة قصيرة محمية. ركز على الخطوة الحالية بس، وسيب الباقي بعد المؤقت.",
+      complete: "تمت",
+      inProgress: "شغال",
+      ready: "جاهز",
+      paused: "متوقف",
+      completeHint: "تمام. احفظ المكسب ده وهو لسه واضح في بالك.",
+      runningHint: "خليك مع الخطوة الحالية بس.",
+      readyHint: "ابدأ، وقف، أو عيد الضبط براحتك.",
+      pause: "إيقاف مؤقت",
+      runAgain: "ابدأ من جديد",
+      start: "ابدأ الفترة",
+      reset: "إعادة ضبط المؤقت",
+      saveCompletion: "احفظ الإنجاز",
+      finishReflect: "إنهاء وكتابة ملاحظة"
+    },
+    reflection: {
+      title: "احفظ المكسب الصغير",
+      body: "اكتب ملاحظة قصيرة عن اللي ساعدك. جملة واحدة كفاية.",
+      label: "حاسس بإيه دلوقتي؟",
+      moods: ["أهدى", "أخف", "لسه تعبان"],
+      noteLabel: "جملة واحدة كفاية",
+      placeholder: "حاسس إني أحسن شوية عشان...",
+      savedTitle: "تم الحفظ",
+      savedText: "حفظنا الاستعادة دي ضمن اللي أنجزته.",
+      save: "احفظ الاستعادة",
+      savedButton: "محفوظ على الجهاز",
+      backHome: "ارجع للرئيسية"
+    },
+    settings: {
+      title: "الإعدادات",
+      body: "كل حاجة محفوظة على جهازك. غير اللغة، مدة الخطة، وتقدمك زي ما يناسبك.",
+      languageTitle: "اللغة",
+      gentleMode: "الوضع الهادئ",
+      soundCues: "تنبيهات صوت",
+      defaultLength: "مدة الخطة الافتراضية",
+      defaultLengthBody: "هتظهر كاقتراح أول لما تختار خطة جديدة.",
+      localProgress: "تقدمك على الجهاز",
+      noSessions: "لسه مفيش استعادات محفوظة. خلص خطة وهتظهر هنا.",
+      completedPlans: "خطط خلصت",
+      favoritePlans: "خطط مفضلة",
+      premiumTitle: "بريميوم جاي بعدين",
+      premiumBody: "الدفع مش متاح في الإصدار ده. كل خطط الاستعادة الحالية مجانية.",
+      previewPremium: "شوف أفكار بريميوم",
+      showOnboarding: "اعرض البداية من جديد",
+      clearProgress: "امسح التقدم من الجهاز",
+      clearTitle: "تمسح التقدم؟",
+      clearBody: "هنمسح الخطط المكتملة والمفضلة من الجهاز ده بس.",
+      cancel: "إلغاء",
+      clear: "مسح"
+    },
+    premium: {
+      eyebrow: "جاي بعدين",
+      title: "بريميوم مش متاح حاليا.",
+      body: "دي أفكار ممكن نضيفها بعدين. مفيش دفع أو اشتراكات في الإصدار ده.",
+      label: "أفكار مستقبلية",
+      offerTitle: "اختيارات أعمق للي بيستخدم التطبيق كتير",
+      offerBody: "الخطط الحالية مجانية ومفيدة. بعدين ممكن نضيف حزم أكتر، أوضاع متخصصة، وتجربة أهدى.",
+      noteTitle: "مفيش دفع",
+      noteBody: "التطبيق مش بيخصم فلوس، والاشتراكات مش مفعلة، وكل الاستعادات الحالية مجانية.",
+      benefitsTitle: "مزايا ممكنة",
+      back: "ارجع للإعدادات"
+    }
   }
 };
 
 export function isArabicLanguage(language: LanguageCode) {
-  return language === "ar";
+  return language === "ar" || language === "arz";
 }

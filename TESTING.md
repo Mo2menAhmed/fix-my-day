@@ -22,7 +22,7 @@ Use this checklist for a small first feedback test with five Android users.
 - Open Fix My Day.
 - Confirm the splash screen appears.
 - Confirm the first visible control includes "Choose your language / اختر اللغة".
-- Switch between English and العربية before completing onboarding.
+- Switch between English, العربية, and مصري before completing onboarding.
 - Confirm the selected language is visually obvious.
 - Confirm onboarding explains:
   - what the app does
@@ -46,6 +46,8 @@ Use this checklist for a small first feedback test with five Android users.
 - Switch Language to العربية.
 - Confirm Home, problem categories, time selection, recovery plans, timer, reflection, settings, and premium placeholder show Arabic copy.
 - Confirm Arabic text is readable, right-aligned where expected, and not clipped.
+- Switch Language to مصري.
+- Confirm the same screens use natural Egyptian Arabic copy, especially the Home categories and recovery plan steps.
 - Complete one Arabic reset and confirm recent history can repeat it.
 - Switch back to English and confirm the app updates without losing local progress.
 

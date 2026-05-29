@@ -20,4 +20,4 @@ Would you open this app on a real bad day? Why or why not, and which premium ben
 
 ## Arabic language follow-up
 
-If the tester used Arabic: did the Arabic feel natural, clear, and trustworthy? Which phrase or screen should be rewritten?
+If the tester used Arabic or Egyptian Arabic: did the copy feel natural, clear, and trustworthy? Which phrase or screen should be rewritten?

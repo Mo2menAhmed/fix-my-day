@@ -9,7 +9,7 @@ type LanguageSelectorProps = {
   showPrompt?: boolean;
 };
 
-const languageOptions: LanguageCode[] = ["en", "ar"];
+const languageOptions: LanguageCode[] = ["en", "ar", "arz"];
 
 export function LanguageSelector({ compact = false, showPrompt = true }: LanguageSelectorProps) {
   const { language, setLanguage, t, textDirection } = useLanguage();

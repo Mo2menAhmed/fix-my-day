@@ -64,7 +64,7 @@ export default function App() {
 
 function AppNavigator({ initialRouteName }: { initialRouteName: keyof RootStackParamList }) {
   const { language } = useLanguage();
-  const title = language === "ar"
+  const title = language !== "en"
     ? {
         home: "Fix My Day",
         time: "اختيار الوقت",
